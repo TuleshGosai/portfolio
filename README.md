@@ -146,6 +146,151 @@ This project uses **Tailwind CSS v4** for styling. Tailwind is configured via th
 - **Vite**: Configured in `vite.config.ts` with React, Tailwind CSS, and SVGR plugins
 - **ESLint**: Configured in `eslint.config.js` with React and TypeScript rules
 
+## 🌐 Deployment (Free Hosting)
+
+This project can be deployed for free using several platforms. Configuration files are already set up for easy deployment.
+
+### Option 1: Netlify (Recommended)
+
+**Netlify** offers free hosting with continuous deployment from Git.
+
+#### Steps to Deploy:
+
+1. **Push your code to GitHub/GitLab/Bitbucket** (if not already done):
+   ```bash
+   git add .
+   git commit -m "Ready for deployment"
+   git push origin master
+   ```
+
+2. **Sign up/Login to Netlify**:
+   - Go to [netlify.com](https://www.netlify.com)
+   - Sign up for free using GitHub, GitLab, or email
+
+3. **Deploy via Git**:
+   - Click "Add new site" → "Import an existing project"
+   - Connect your Git repository
+   - Netlify will auto-detect the build settings:
+     - **Build command**: `npm run build`
+     - **Publish directory**: `dist`
+   - Click "Deploy site"
+
+4. **Automatic Deployments**:
+   - Every push to your repository will automatically trigger a new deployment
+   - You'll get a free subdomain like `your-portfolio.netlify.app`
+   - You can add a custom domain later
+
+**Note**: The `netlify.toml` file is already configured in this project.
+
+---
+
+### Option 2: Vercel
+
+**Vercel** provides excellent performance and automatic deployments.
+
+#### Steps to Deploy:
+
+1. **Push your code to GitHub** (if not already done)
+
+2. **Sign up/Login to Vercel**:
+   - Go to [vercel.com](https://vercel.com)
+   - Sign up with GitHub
+
+3. **Import Project**:
+   - Click "Add New Project"
+   - Import your repository
+   - Vercel will auto-detect Vite settings
+   - Click "Deploy"
+
+4. **Done!**:
+   - Your site will be live at `your-portfolio.vercel.app`
+   - Automatic deployments on every push
+
+**Note**: The `vercel.json` file is already configured in this project.
+
+---
+
+### Option 3: GitHub Pages
+
+Deploy directly from GitHub for free.
+
+#### Steps to Deploy:
+
+1. **Install gh-pages** (if needed):
+   ```bash
+   npm install --save-dev gh-pages
+   ```
+
+2. **Add deploy script to package.json**:
+   ```json
+   "scripts": {
+     "deploy": "gh-pages -d dist"
+   }
+   ```
+
+3. **Update vite.config.ts** to set base path:
+   ```typescript
+   export default defineConfig({
+     base: '/portfolio/', // Replace 'portfolio' with your repo name
+     // ... rest of config
+   })
+   ```
+
+4. **Build and Deploy**:
+   ```bash
+   npm run build
+   npm run deploy
+   ```
+
+5. **Enable GitHub Pages**:
+   - Go to your repository Settings → Pages
+   - Select `gh-pages` branch as source
+   - Your site will be at `https://username.github.io/portfolio/`
+
+---
+
+### Option 4: Cloudflare Pages
+
+**Cloudflare Pages** offers free hosting with excellent performance.
+
+#### Steps to Deploy:
+
+1. Push your code to GitHub/GitLab
+
+2. Go to [Cloudflare Dashboard](https://dash.cloudflare.com)
+
+3. Navigate to Pages → Create a project
+
+4. Connect your repository and set:
+   - **Build command**: `npm run build`
+   - **Build output directory**: `dist`
+   - **Framework preset**: Vite
+
+5. Deploy!
+
+---
+
+### Comparison of Free Hosting Options
+
+| Platform | Free Tier | Custom Domain | Auto Deploy | Best For |
+|----------|-----------|---------------|-------------|----------|
+| **Netlify** | ✅ Unlimited | ✅ Yes | ✅ Yes | Easiest setup |
+| **Vercel** | ✅ Unlimited | ✅ Yes | ✅ Yes | Best performance |
+| **GitHub Pages** | ✅ Unlimited | ✅ Yes | ⚠️ Manual | Open source projects |
+| **Cloudflare Pages** | ✅ Unlimited | ✅ Yes | ✅ Yes | Global CDN |
+
+### Recommended: Netlify or Vercel
+
+Both Netlify and Vercel offer:
+- ✅ Free unlimited hosting
+- ✅ Automatic HTTPS
+- ✅ Custom domain support
+- ✅ Continuous deployment from Git
+- ✅ Fast global CDN
+- ✅ Preview deployments for pull requests
+
+Choose the one that integrates best with your workflow!
+
 ## 📄 License
 
 This project is private and not licensed for public use.
