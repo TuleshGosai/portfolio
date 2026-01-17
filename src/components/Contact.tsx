@@ -126,7 +126,7 @@ const Contact: FC = () => {
         {/* Copyright */}
         <div className="flex items-center justify-center gap-2 py-6 border-t border-gray-200">
           <img src="/icons/copyright.svg" alt="copyright" className="w-5 h-5" />
-          <p className="text-sm text-[#2B2B2B]">2021 All Rights Reserved.Ojjomedia</p>
+          <p className="text-sm text-[#2B2B2B]"> All Rights Reserved</p>
         </div>
       </div>
     </section>
