@@ -24,8 +24,7 @@ const Services: FC = () => {
       <div className="max-w-6xl mx-auto">
         <h2 className="section-title text-center">My Services</h2>
         <p className="section-subtitle">
-          Amet Minim Mollit Non Deserunt Ullamco Est Sit Aliqua Dolor Do Amet Sint. Velit Officia
-          Consequat Duis Enim Velit Mollit. Lorem Ipsum
+          I specialize in building scalable, high-performance web applications using React.js and modern JavaScript.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
