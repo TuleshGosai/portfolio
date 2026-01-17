@@ -2,24 +2,29 @@ import type { FC } from 'react'
 
 const Sidebar: FC = () => {
   const skills = [
-    { name: 'Html', level: 90 },
-    { name: 'CSS', level: 85 },
-    { name: 'Js', level: 80 },
-    { name: 'PHP', level: 75 },
-    { name: 'WordPress', level: 85 },
+    { name: 'HTML5', level: 90 },
+    { name: 'CSS3', level: 85 },
+    { name: 'JavaScript(ES6+)', level: 85 },
+    { name: 'React', level: 85 },
   ]
 
   const languages = [
-    { name: 'Bangla', level: 100 },
-    { name: 'English', level: 80 },
-    { name: 'Spanish', level: 60 },
+    { name: 'Gujarati', level: 100 },
+    { name: 'English', level: 50 },
+    { name: 'Hindi', level: 80 },
   ]
 
   const extraSkills = [
-    'Bootstrap, Materialize',
-    'Stylus, Sass, Less',
-    'Gulp, Webpack, Grunt',
-    'GIT Knowledge',
+    'Redux, Next.js', 'TypeScript',
+    'Tailwind CSS, Bootstrap', 'Material UI', 'Ant Design',
+    'Git / Version Control', 'Sass',
+    'Node.js, Express, Jira',
+    'Performance Optimization',
+    'MongoDB, MySQL','Redux Toolkit',
+    'Docker, CI/CD',
+    'REST API, Joint.js',
+    'Jest, D3.js, Three.js',
+    'Postman, Swagger',
   ]
 
   return (
@@ -29,24 +34,21 @@ const Sidebar: FC = () => {
         <div className="text-center mb-8">
           <div className="relative inline-block mb-4">
             <img
-              src="/images/profile-main.png"
-              alt="Rayan Adlardard"
-              className="w-40 h-40 rounded-full object-cover mx-auto"
+              src="/images/tulesh.png"
+              alt="Tulesh Gosai"
+              className="w-40 h-40 rounded-full object-contain mx-auto"
             />
             <div className="absolute bottom-2 right-2 w-4 h-4 bg-[#7EB942] rounded-full border-2 border-white shadow-md" />
           </div>
-          <h1 className="text-lg font-medium text-[#2B2B2B] mb-1">Rayan Adlardard</h1>
-          <p className="text-sm text-[#767676]">Font-End Developer</p>
+          <h1 className="text-lg font-medium text-[#2B2B2B] mb-1">Tulesh Gosai</h1>
+          <p className="text-sm text-[#767676]">Senior Font-End Developer</p>
 
           {/* Social Media Icons */}
           <div className="flex justify-center gap-3 mt-6">
             {[
-              { name: 'Facebook', icon: '/icons/facebook.svg' },
-              { name: 'Instagram', icon: '/icons/instagram.svg' },
-              { name: 'Twitter', icon: '/icons/twitter.svg' },
-              { name: 'LinkedIn', icon: '/icons/linkedin.svg' },
-              { name: 'YouTube', icon: '/icons/youtube.svg' },
-              { name: 'Dribbble', icon: '/icons/dribbble.svg' },
+              { name: 'Instagram', icon: '/icons/instagram.svg', link: 'https://www.instagram.com/tulesh_nileshgiri_gosai' },
+              { name: 'LinkedIn', icon: '/icons/linkedin.svg',link: 'https://www.linkedin.com/in/tulesh-gosai-5b4a011a4/' },
+              { name: 'github', icon: '/icons/github.svg',link: 'https://github.com/TuleshGosai' },
             ].map((social) => (
               <a
                 key={social.name}
@@ -63,11 +65,11 @@ const Sidebar: FC = () => {
         <div className="border-t border-[#F0F0F6] pt-6 space-y-3 mb-6">
           <div className="flex justify-between">
             <span className="text-sm text-[#2B2B2B] font-medium">Age:</span>
-            <span className="text-sm text-[#767676]">24</span>
+            <span className="text-sm text-[#767676]">{new Date().getFullYear() - 1996}</span>
           </div>
           <div className="flex justify-between">
             <span className="text-sm text-[#2B2B2B] font-medium">Residence:</span>
-            <span className="text-sm text-[#767676]">BD</span>
+            <span className="text-sm text-[#767676]">India</span>
           </div>
           <div className="flex justify-between">
             <span className="text-sm text-[#2B2B2B] font-medium">Freelance:</span>
@@ -75,7 +77,7 @@ const Sidebar: FC = () => {
           </div>
           <div className="flex justify-between">
             <span className="text-sm text-[#2B2B2B] font-medium">Address:</span>
-            <span className="text-sm text-[#767676]">Dhaka,Bangladesh</span>
+            <span className="text-sm text-[#767676]">Junagadh, Gujarat</span>
           </div>
         </div>
 

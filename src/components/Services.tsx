@@ -10,22 +10,12 @@ const Services: FC = () => {
     {
       icon: '/icons/ui-design.svg',
       title: 'UI/UX Design',
-      description: 'Mobile App, Website Design',
-    },
-    {
-      icon: '/icons/microphone.svg',
-      title: 'Sound Design',
-      description: 'Voice Over, Beat Making',
+      description: 'Website Design',
     },
     {
       icon: '/icons/game-development.svg',
-      title: 'Game Design',
-      description: 'Character Design, Props & Objects',
-    },
-    {
-      icon: '/icons/photographer.svg',
-      title: 'Photography',
-      description: 'Portrait, Product Photography',
+      title: 'Product Development',
+      description: 'Product Development, Product Management',
     },
   ]
 
@@ -53,22 +43,6 @@ const Services: FC = () => {
               <p className="text-sm text-[#767676]">{service.description}</p>
             </div>
           ))}
-
-          {/* Advertising Card */}
-          <div className="card card-hover text-center p-8 bg-white">
-            <h3 className="text-lg font-medium text-[#2B2B2B] capitalize mb-4">Advertising</h3>
-            <p className="text-sm text-[#767676] mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae nulla diam in ac
-              dictum a urna viverra morbi.
-            </p>
-            <a
-              href="#"
-              className="text-[#FFB400] text-xs font-bold uppercase inline-flex items-center gap-2 hover:gap-3 transition-all"
-            >
-              <span>Order Now</span>
-              <img src="/icons/arrow-right-small.svg" alt="arrow" className="w-1.5 h-2" />
-            </a>
-          </div>
         </div>
       </div>
     </section>

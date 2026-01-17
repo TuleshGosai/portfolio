@@ -3,25 +3,11 @@ import type { FC } from 'react'
 const WorkHistory: FC = () => {
   const workItems = [
     {
-      title: 'Lead Web Designer',
-      certificate: 'Certificate Of Web Training',
-      duration: 'Jan 1016 - Dec 2021',
+      title: 'Senior Frontend Developer',
+      certificate: 'Senior Frontend Developer',
+      duration: '2018 - 2026',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet dapibus nibh ut faucibus nunc, egestas id amet porttitor. Pulvinar quisque sed amet, nulla nunc. Eleifend sodales posuere fusce tempus etiam et pellentesque. Molestie risus enim neque eget dui.',
-    },
-    {
-      title: 'Junior Web Designer',
-      certificate: 'Certificate Of Web Training',
-      duration: 'Jan 1016 - Dec 2021',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet dapibus nibh ut faucibus nunc, egestas id amet porttitor. Pulvinar quisque sed amet, nulla nunc. Eleifend sodales posuere fusce tempus etiam et pellentesque. Molestie risus enim neque eget dui.',
-    },
-    {
-      title: 'Senior Web Designer',
-      certificate: 'Certificate Of Web Training',
-      duration: 'Jan 1016 - Dec 2021',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet dapibus nibh ut faucibus nunc, egestas id amet porttitor. Pulvinar quisque sed amet, nulla nunc. Eleifend sodales posuere fusce tempus etiam et pellentesque. Molestie risus enim neque eget dui.',
+        'Senior Frontend Developer at Zeronsec India Pvt. Ltd. (A product based company).',
     },
   ]
 
@@ -30,8 +16,7 @@ const WorkHistory: FC = () => {
       <div className="max-w-6xl mx-auto">
         <h2 className="section-title text-center">Work History</h2>
         <p className="section-subtitle">
-          Amet Minim Mollit Non Deserunt Ullamco Est Sit Aliqua Dolor Do Amet Sint. Velit Officia
-          Consequat Duis Enim Velit Mollit. Lorem Ipsum
+          Senior Frontend Developer at Zeronsec India Pvt. Ltd.
         </p>
 
         <div className="card bg-white">

@@ -1,6 +1,14 @@
 import type { FC } from 'react'
 
 const Hero: FC = () => {
+  
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <section id="home" className="relative min-h-screen flex items-center bg-[#F0F0F6] px-6 lg:px-12">
       {/* Decorative Elements */}
@@ -14,15 +22,15 @@ const Hero: FC = () => {
         {/* Content */}
         <div className="flex-1 z-10">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#2B2B2B] mb-6 leading-tight">
-            I'm Rayan Adlrdard
+            I'm Tulesh Gosai
             <br />
-            <span className="text-[#FFB400]">Front-end</span> Developer
+            <span className="text-[#FFB400]">Senior Front-end</span> Developer
           </h1>
           <p className="text-base text-[#767676] mb-8 max-w-lg leading-relaxed">
-            Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Et, Volutpat Feugiat Placerat
-            Lobortis. Natoque Rutrum Semper Sed Suspendisse Nunc Lectus.
+          Senior Frontend Developer with 7+ years of experience building scalable, high-performance web applications using React.js and modern JavaScript.
+          Strong expertise in component-driven architecture, state management, UI/UX optimization, and secure product-based applications. Proven ability to lead frontend development, collaborate with cross-functional teams, and deliver production-ready solutions in fast-paced environments.
           </p>
-          <button className="btn-primary rounded-none">
+          <button onClick={() => scrollToSection('contact')} className="btn-primary rounded-none">
             <span>Hire Me</span>
             <img src="/icons/arrow-right.svg" alt="arrow" className="w-3 h-3" />
           </button>
@@ -32,7 +40,7 @@ const Hero: FC = () => {
         <div className="flex-1 flex justify-center relative">
           <div className="relative">
             <img
-              src="/images/profile-main.png"
+              src="/images/gosai.png"
               alt="Rayan Adlardard"
               className="w-80 h-auto object-contain relative z-10"
             />

@@ -3,25 +3,11 @@ import type { FC } from 'react'
 const Education: FC = () => {
   const educationItems = [
     {
-      institution: 'University Of Toronto',
-      certificate: 'Certificate Of Web Training',
-      duration: 'Jan 1016 - Dec 2021',
+      institution: 'Gujarat Technological University',
+      certificate: 'B.E. in Computer Engineering',
+      duration: '2016 - 2019',
       description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet dapibus nibh ut faucibus nunc, egestas id amet porttitor. Pulvinar quisque sed amet, nulla nunc. Eleifend sodales posuere fusce tempus etiam et pellentesque. Molestie risus enim neque eget dui.',
-    },
-    {
-      institution: 'Programming Course',
-      certificate: 'Certificate Of Web Training',
-      duration: 'Jan 1016 - Dec 2021',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet dapibus nibh ut faucibus nunc, egestas id amet porttitor. Pulvinar quisque sed amet, nulla nunc. Eleifend sodales posuere fusce tempus etiam et pellentesque. Molestie risus enim neque eget dui.',
-    },
-    {
-      institution: 'Web Developer Courses',
-      certificate: 'Certificate Of Web Training',
-      duration: 'Jan 1016 - Dec 2021',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet dapibus nibh ut faucibus nunc, egestas id amet porttitor. Pulvinar quisque sed amet, nulla nunc. Eleifend sodales posuere fusce tempus etiam et pellentesque. Molestie risus enim neque eget dui.',
+        'Completed B.E. in Computer Engineering from Gujarat Technological University with a CGPA of 7.72.',
     },
   ]
 
@@ -30,8 +16,7 @@ const Education: FC = () => {
       <div className="max-w-6xl mx-auto">
         <h2 className="section-title text-center">Education</h2>
         <p className="section-subtitle">
-          Amet Minim Mollit Non Deserunt Ullamco Est Sit Aliqua Dolor Do Amet Sint. Velit Officia
-          Consequat Duis Enim Velit Mollit. Lorem Ipsum
+          Completed B.E. in Computer Engineering from Gujarat Technological University with a CGPA of 7.72.
         </p>
 
         <div className="card bg-white">

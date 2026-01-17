@@ -3,32 +3,42 @@ import type { FC } from 'react'
 const Blog: FC = () => {
   const blogPosts = [
     {
-      image: '/images/blog-web-templates.jpg',
-      title: 'How To Make Web Templates',
+      image: '/images/ekasha.png',
+      title: 'Ekasha – Incident Management & SOAR Platform',
       excerpt:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae nulla diam in ac dictum a urna',
+        'A comprehensive Incident Management & SOAR (Security Orchestration, Automation, and Response) platform that centralizes incident analysis, prioritization, investigation, and automated response workflows, helping security teams streamline operations and manage the full incident lifecycle with real-time collaboration and KPI-driven dashboards. Contribution: Built responsive React.js UI components, implemented state management, and optimized performance for dashboards and alert workflows.',
+      link: 'https://www.zeronsec.com/product/ekasha',
+      },
+    {
+      image: '/images/anrita.png',
+      title: 'Anrita – SIEM (Security Information & Event Management)',
+      excerpt:
+        'A next-generation SIEM (Security Information & Event Management) solution that provides real-time threat detection, monitoring, and advanced analytics across networks, endpoints, and cloud systems. It consolidates log data, visualizes security events via dashboards, and empowers analysts with actionable threat insights and customized reporting. Contribution: Developed core frontend modules, integrated complex data visualizations, and ensured real-time interaction with backend systems.',
+      link: 'https://www.zeronsec.com/product/anrita',
     },
     {
-      image: '/images/blog-business-card.jpg',
-      title: 'Make Business Card',
+      image: '/images/Threati.png',
+      title: 'Threati – Threat Intelligence Platform',
       excerpt:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae nulla diam in ac dictum a urna',
+        'A platform designed for threat intelligence gathering and analysis, helping organizations identify, assess, and respond to emerging cyber threats by consuming threat feeds and generating actionable insights that drive proactive security decisions. Contribution: Led frontend development using React.js, crafted interactive threat dashboards, and improved usability for security analysts.',
+      link: 'https://www.zeronsec.com/product/threati',
     },
     {
-      image: '/images/blog-flyer-design.jpg',
-      title: 'How To Make Flyer Design',
+      image: '/images/zeronsec.jpg',
+      title: 'Zeronsec - Web Application',
       excerpt:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae nulla diam in ac dictum a urna',
+        'A web application built using React.js that provides a secure and efficient way to manage and analyze security data. It includes features for incident management, threat intelligence, and compliance tracking. Contribution: Developed the frontend UI, implemented state management, and integrated with backend APIs.',
+      link: 'https://www.zeronsec.com/',
     },
   ]
 
   return (
     <section id="blog" className="py-20 px-6 lg:px-12 bg-[#F0F0F6]">
       <div className="max-w-6xl mx-auto">
-        <h2 className="section-title text-center">Blog</h2>
+        <h2 className="section-title text-center">Project Highlights</h2>
         <p className="section-subtitle">
-          Amet Minim Mollit Non Deserunt Ullamco Est Sit Aliqua Dolor Do Amet Sint. Velit Officia
-          Consequat Duis Enim Velit Mollit. Lorem Ipsum
+          Designed and developed scalable React.js applications for multiple security-focused products.
+          Built reusable, modular components to improve development speed and maintainability.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -37,13 +47,15 @@ const Blog: FC = () => {
               <img
                 src={post.image}
                 alt={post.title}
-                className="w-full h-64 object-cover"
+                className="w-full h-64 object-contain"
               />
               <div className="p-6">
                 <h3 className="text-lg font-medium text-[#2B2B2B] mb-3">{post.title}</h3>
                 <p className="text-sm text-[#767676] mb-4 leading-relaxed">{post.excerpt}</p>
                 <a
-                  href="#"
+                  href={post.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-[#FFB400] text-base font-medium inline-flex items-center gap-2 hover:gap-3 transition-all"
                 >
                   <span>Learn More</span>

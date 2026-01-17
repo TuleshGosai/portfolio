@@ -7,8 +7,8 @@ const Navigation: FC = () => {
   const navItems = [
     { id: 'home', label: 'Home', icon: '/icons/home.svg' },
     { id: 'services', label: 'Service', icon: '/icons/service.svg' },
-    { id: 'cv', label: 'CV', icon: '/icons/cv.svg' },
-    { id: 'portfolio', label: 'Portfolio', icon: '/icons/portfolio-icon.svg' },
+    // { id: 'cv', label: 'CV', icon: '/icons/cv.svg' },
+    // { id: 'portfolio', label: 'Portfolio', icon: '/icons/portfolio-icon.svg' },
     { id: 'blog', label: 'Blog', icon: '/icons/blog.svg' },
     { id: 'contact', label: 'Contact', icon: '/icons/contact.svg' },
   ]
