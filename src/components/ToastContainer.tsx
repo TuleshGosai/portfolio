@@ -8,7 +8,7 @@ const ToastContainer: FC = () => {
   if (toasts.length === 0) return null
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex flex-col-reverse gap-3">
+    <div className="fixed top-4 right-4 z-50 flex flex-col-reverse gap-3">
       {toasts.map((toast) => (
         <Toast key={toast.id} toast={toast} onClose={removeToast} />
       ))}
