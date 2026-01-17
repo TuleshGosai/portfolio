@@ -111,7 +111,9 @@ const Contact: FC = () => {
 
         {/* Map */}
         <div className="mb-16">
-          <img src="/images/junagadh.jpg" alt="Map" className="w-full h-80 object-contain" />
+          <a href="https://www.google.com/maps/place/Ganga+Nagar+Rd,+Joshipura,+Junagadh,+Gujarat+362002/@21.5302808,70.4394589,15.33z/data=!4m6!3m5!1s0x3958021e7b9c5e8d:0xf36429c4e8c197d3!8m2!3d21.531114!4d70.4496952!16s%2Fg%2F11b6_c1wrz?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" rel="noopener noreferrer">
+            <img src="/images/junagadh.jpg" alt="Map" className="w-full h-80 object-contain" />
+          </a>
         </div>
 
         {/* Footer Logos
