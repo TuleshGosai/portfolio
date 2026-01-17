@@ -1,30 +1,18 @@
-import Sidebar from './components/Sidebar'
-import Navigation from './components/Navigation'
-import Hero from './components/Hero'
-import Services from './components/Services'
-// import PricingPlans from './components/PricingPlans'
-// import Recommendations from './components/Recommendations'
-import Education from './components/Education'
-import WorkHistory from './components/WorkHistory'
-// import Portfolio from './components/Portfolio'
-import Blog from './components/Blog'
-import Contact from './components/Contact'
+import Sidebar from './layout/Sidebar'
+import Navigation from './layout/Navigation'
+import Home from './pages/Home'
+import Contact from './pages/Contact'
+import ToastContainer from './components/ToastContainer'
 
 function App() {
   return (
     <div className="min-h-screen bg-[#F0F0F6]">
       <Sidebar />
       <Navigation />
+      <ToastContainer />
       
       <main className="lg:ml-80 xl:mr-28">
-        <Hero />
-        <Services />
-        {/* <PricingPlans /> */}
-        {/* <Recommendations /> */}
-        <Education />
-        <WorkHistory />
-        {/* <Portfolio /> */}
-        <Blog />
+        <Home />
         <Contact />
       </main>
     </div>

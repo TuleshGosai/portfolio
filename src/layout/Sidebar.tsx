@@ -1,6 +1,8 @@
-import type { FC } from 'react'
+import { useState, type FC } from 'react'
+import Tooltip from '../components/Tooltip'
 
 const Sidebar: FC = () => {
+  const [isDownloading, setIsDownloading] = useState(false)
   const skills = [
     { name: 'HTML5', level: 90 },
     { name: 'CSS3', level: 85 },
@@ -27,6 +29,26 @@ const Sidebar: FC = () => {
     'Postman, Swagger',
   ]
 
+  const handleDownloadResume = async () => {
+    setIsDownloading(true)
+    
+    try {
+      // Simulate a small delay to show loading state
+      await new Promise((resolve) => setTimeout(resolve, 500))
+      
+      const link = document.createElement('a')
+      link.href = '/resume/Resume Tulesh Gosai.pdf'
+      link.download = 'Resume Tulesh Gosai.pdf'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    } catch (error) {
+      console.error('Download error:', error)
+    } finally {
+      setIsDownloading(false)
+    }
+  }
+
   return (
     <aside className="fixed left-0 top-0 h-screen w-full lg:w-80 bg-[#FAFAFA] overflow-y-auto z-40 hidden lg:block">
       <div className="p-8">
@@ -47,16 +69,19 @@ const Sidebar: FC = () => {
           <div className="flex justify-center gap-3 mt-6">
             {[
               { name: 'Instagram', icon: '/icons/instagram.svg', link: 'https://www.instagram.com/tulesh_nileshgiri_gosai' },
-              { name: 'LinkedIn', icon: '/icons/linkedin.svg',link: 'https://www.linkedin.com/in/tulesh-gosai-5b4a011a4/' },
-              { name: 'github', icon: '/icons/github.svg',link: 'https://github.com/TuleshGosai' },
+              { name: 'LinkedIn', icon: '/icons/linkedin.svg', link: 'https://www.linkedin.com/in/tulesh-gosai-5b4a011a4/' },
+              { name: 'GitHub', icon: '/icons/github.svg', link: 'https://github.com/TuleshGosai' },
             ].map((social) => (
-              <a
-                key={social.name}
-                href="#"
-                className="w-6 h-6 bg-[#FFB400] rounded-full flex items-center justify-center hover:bg-yellow-500 transition-colors"
-              >
-                <img src={social.icon} alt={social.name} className="w-3 h-3" />
-              </a>
+              <Tooltip key={social.name} text={social.name} position="top">
+                <a
+                  href={social.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-6 h-6 bg-[#FFB400] rounded-full flex items-center justify-center hover:bg-yellow-500 transition-colors"
+                >
+                  <img src={social.icon} alt={social.name} className="w-3 h-3" />
+                </a>
+              </Tooltip>
             ))}
           </div>
         </div>
@@ -132,9 +157,43 @@ const Sidebar: FC = () => {
 
         {/* Download CV Button */}
         <div className="border-t border-[#F0F0F6] pt-6">
-          <button className="btn-primary w-full justify-center rounded-none">
-            <span className="text-sm">Download CV</span>
-            <img src="/icons/download.svg" alt="download" className="w-3 h-3" />
+          <button 
+            onClick={handleDownloadResume}
+            disabled={isDownloading}
+            className={`btn-primary w-full justify-center rounded-none ${
+              isDownloading ? 'opacity-70 cursor-not-allowed' : ''
+            }`}
+          >
+            {isDownloading ? (
+              <>
+                <svg
+                  className="animate-spin -ml-1 mr-2 h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  />
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  />
+                </svg>
+                <span className="text-sm">Downloading...</span>
+              </>
+            ) : (
+              <>
+                <span className="text-sm">Download CV</span>
+                <img src="/icons/download.svg" alt="download" className="w-3 h-3" />
+              </>
+            )}
           </button>
         </div>
       </div>
