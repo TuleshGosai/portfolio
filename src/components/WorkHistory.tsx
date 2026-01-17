@@ -26,7 +26,7 @@ const WorkHistory: FC = () => {
                 <div>
                   <h3 className="text-lg font-medium text-[#2B2B2B] mb-4">{item.title}</h3>
                   <div className="flex items-center gap-3">
-                    <span className="text-sm text-[#767676]">Student</span>
+                    <span className="text-sm text-[#767676]">Employee</span>
                     <span className="text-xs text-white bg-[#FFB400] px-3 py-1">
                       {item.duration}
                     </span>
