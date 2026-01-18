@@ -31,11 +31,11 @@ const Navigation: FC = () => {
               onClick={() => scrollToSection(item.id)}
               className="flex flex-col items-center gap-2 group relative"
             >
-              {activeSection === item.id && (
-                <span className="text-xs font-medium text-white absolute -top-8">
+              {/* {activeSection === item.id && (
+                <span className="text-xs font-medium text-black absolute -top-8">
                   {item.label}
                 </span>
-              )}
+              )} */}
               <div
                 className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
                   activeSection === item.id

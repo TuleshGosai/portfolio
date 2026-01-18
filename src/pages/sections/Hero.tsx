@@ -40,7 +40,7 @@ const Hero: FC = () => {
         <div className="flex-1 flex justify-center relative">
           <div className="relative">
             <img
-              src="/images/gosai.png"
+              src="/images/tuleshgosai.png"
               alt="Rayan Adlardard"
               className="w-80 h-auto object-contain relative z-10"
             />
