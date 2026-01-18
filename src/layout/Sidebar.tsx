@@ -64,6 +64,7 @@ const Sidebar: FC = () => {
         onClick={() => setIsOpen(true)}
         className="fixed top-4 left-4 z-50 flex flex-col gap-1 lg:hidden"
         aria-label="Open Menu"
+        style={{cursor: 'pointer'}}
       >
         <span className="w-6 h-0.5 bg-black"></span>
         <span className="w-6 h-0.5 bg-black"></span>
