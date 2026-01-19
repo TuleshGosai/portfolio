@@ -1,4 +1,5 @@
 import type { FC } from 'react'
+import ScrollAnimation from '../../components/ScrollAnimation'
 
 const Blog: FC = () => {
   const blogPosts = [
@@ -35,34 +36,45 @@ const Blog: FC = () => {
   return (
     <section id="blog" className="py-20 px-6 lg:px-12 bg-[#F0F0F6]">
       <div className="max-w-6xl mx-auto">
-        <h2 className="section-title text-center">Project Highlights</h2>
-        <p className="section-subtitle">
-          Designed and developed scalable React.js applications for multiple security-focused products.
-          Built reusable, modular components to improve development speed and maintainability.
-        </p>
+        <ScrollAnimation animation="fade-up">
+          <h2 className="section-title text-center">Project Highlights</h2>
+          <p className="section-subtitle">
+            Designed and developed scalable React.js applications for multiple security-focused products.
+            Built reusable, modular components to improve development speed and maintainability.
+          </p>
+        </ScrollAnimation>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {blogPosts.map((post, index) => (
-            <div key={index} className="card card-hover bg-white p-0 overflow-hidden">
-              <img
-                src={post.image}
-                alt={post.title}
-                className="w-full h-64 object-contain"
-              />
-              <div className="p-6">
-                <h3 className="text-lg font-medium text-[#2B2B2B] mb-3">{post.title}</h3>
-                <p className="text-sm text-[#767676] mb-4 leading-relaxed">{post.excerpt}</p>
-                <a
-                  href={post.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#FFB400] text-base font-medium inline-flex items-center gap-2 hover:gap-3 transition-all"
-                >
-                  <span>Learn More</span>
-                  <img src="/icons/arrow-right-small.svg" alt="arrow" className="w-1.5 h-2" />
-                </a>
+            <ScrollAnimation
+              key={index}
+              animation="fade-up"
+              delay={index * 100}
+              className="scroll-delay-1"
+            >
+              <div className="card card-hover bg-white p-0 overflow-hidden flex flex-col h-full">
+                <div className="w-full h-48 md:h-64 overflow-hidden bg-[#F0F0F6] flex items-center justify-center p-4 border-white border-2 rounded-lg">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div className="p-6 flex flex-col flex-1">
+                  <h3 className="text-lg font-medium text-[#2B2B2B] mb-3">{post.title}</h3>
+                  <p className="text-sm text-[#767676] mb-4 leading-relaxed flex-1">{post.excerpt}</p>
+                  <a
+                    href={post.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#FFB400] text-base font-medium inline-flex items-center gap-2 hover:gap-3 transition-all mt-auto"
+                  >
+                    <span>Learn More</span>
+                    <img src="/icons/arrow-right-small.svg" alt="arrow" className="w-1.5 h-2" />
+                  </a>
+                </div>
               </div>
-            </div>
+            </ScrollAnimation>
           ))}
         </div>
       </div>

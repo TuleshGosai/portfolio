@@ -4,6 +4,23 @@ import Tooltip from '../components/Tooltip'
 const Sidebar: FC = () => {
   const [isDownloading, setIsDownloading] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('home')
+
+  const navItems = [
+    { id: 'home', label: 'Home', icon: '/icons/home.svg' },
+    { id: 'services', label: 'Service', icon: '/icons/service.svg' },
+    { id: 'blog', label: 'Product Highlight', icon: '/icons/blog.svg' },
+    { id: 'contact', label: 'Contact', icon: '/icons/contact.svg' },
+  ]
+
+  const scrollToSection = (id: string) => {
+    setActiveSection(id)
+    setIsOpen(false) // Close sidebar on mobile when navigation item is clicked
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 
   const skills = [
     { name: 'HTML5', level: 90 },
@@ -55,24 +72,43 @@ const Sidebar: FC = () => {
 
   return (
     <>
-      {/* Hamburger Button (Mobile) */}
-      {
-        !isOpen && (
-          <header className="sticky top-0 z-50 bg-white h-16 flex items-center px-4 lg:hidden" style={{backgroundColor: '#f0f0f6'}}>
-            
-      <button
-        onClick={() => setIsOpen(true)}
-        className="fixed top-4 left-4 z-50 flex flex-col gap-1 lg:hidden"
-        aria-label="Open Menu"
-        style={{cursor: 'pointer'}}
-      >
-        <span className="w-6 h-0.5 bg-black"></span>
-        <span className="w-6 h-0.5 bg-black"></span>
-        <span className="w-6 h-0.5 bg-black"></span>
-      </button>
+      {/* Mobile Header with Hamburger and Navigation */}
+      <header className="fixed top-0 left-0 right-0 h-16 bg-[#FAFAFA] shadow-md z-50 flex items-center justify-between px-4 lg:hidden">
+        {/* Hamburger Button */}
+        <button
+          onClick={() => setIsOpen(true)}
+          className="flex flex-col gap-1"
+          aria-label="Open Menu"
+          style={{cursor: 'pointer'}}
+        >
+          <span className="w-6 h-0.5 bg-black"></span>
+          <span className="w-6 h-0.5 bg-black"></span>
+          <span className="w-6 h-0.5 bg-black"></span>
+        </button>
+
+        {/* Navigation Items */}
+        <div className="flex items-center gap-2">
+          {navItems.map((item) => (
+            <Tooltip key={item.id} text={item.label} position="bottom">
+              <button
+                onClick={() => scrollToSection(item.id)}
+                className={`p-2 rounded-lg transition-all cursor-pointer ${
+                  activeSection === item.id
+                    ? 'bg-[#FFB400]'
+                    : 'hover:bg-gray-100'
+                }`}
+                aria-label={item.label}
+              >
+                <img
+                  src={item.icon}
+                  alt={item.label}
+                  className={`w-5 h-5 ${activeSection === item.id ? '' : 'opacity-60'}`}
+                />
+              </button>
+            </Tooltip>
+          ))}
+        </div>
       </header>
-      )
-      }
 
       {/* Overlay */}
       {isOpen && (
@@ -92,16 +128,20 @@ const Sidebar: FC = () => {
       >
         {/* Close Button (Mobile) */}
         <button
-          onClick={() => setIsOpen(false)}
-          className="absolute top-4 right-4 text-2xl lg:hidden"
+          onClick={(e) => {
+            e.stopPropagation()
+            setIsOpen(false)
+          }}
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-2xl text-[#2B2B2B] hover:bg-gray-100 rounded-full transition-colors z-50 lg:hidden"
           aria-label="Close Menu"
+          style={{cursor: 'pointer'}}
         >
           ×
         </button>
 
-        <div className="p-8">
+        <div className="p-8 sidebar-content">
           {/* Profile Section */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-8 sidebar-item">
             <div className="relative inline-block mb-4">
               <img
                 src="/images/tuleshgosai.png"
@@ -153,7 +193,7 @@ const Sidebar: FC = () => {
           </div>
 
           {/* Personal Info */}
-          <div className="border-t border-[#F0F0F6] pt-6 space-y-3 mb-6">
+          <div className="border-t border-[#F0F0F6] pt-6 space-y-3 mb-6 sidebar-item">
             <div className="flex justify-between">
               <span className="text-sm font-medium">Age:</span>
               <span className="text-sm text-[#767676]">
@@ -177,7 +217,7 @@ const Sidebar: FC = () => {
           </div>
 
           {/* Languages */}
-          <div className="border-t border-[#F0F0F6] pt-6 mb-6">
+          <div className="border-t border-[#F0F0F6] pt-6 mb-6 sidebar-item">
             <h3 className="text-lg font-medium mb-4">Languages</h3>
             {languages.map((lang) => (
               <div key={lang.name} className="mb-3">
@@ -200,7 +240,7 @@ const Sidebar: FC = () => {
           </div>
 
           {/* Skills */}
-          <div className="border-t border-[#F0F0F6] pt-6 mb-6">
+          <div className="border-t border-[#F0F0F6] pt-6 mb-6 sidebar-item">
             <h3 className="text-lg font-medium mb-4">Skills</h3>
             {skills.map((skill) => (
               <div key={skill.name} className="mb-3">
@@ -223,7 +263,7 @@ const Sidebar: FC = () => {
           </div>
 
           {/* Extra Skills */}
-          <div className="border-t border-[#F0F0F6] pt-6 mb-6">
+          <div className="border-t border-[#F0F0F6] pt-6 mb-6 sidebar-item">
             <h3 className="text-lg font-medium mb-4">Extra Skills</h3>
             {extraSkills.map((skill, index) => (
               <div key={index} className="flex items-start gap-2 mb-2">
@@ -238,7 +278,7 @@ const Sidebar: FC = () => {
           </div>
 
           {/* Download CV */}
-          <div className="border-t border-[#F0F0F6] pt-6">
+          <div className="border-t border-[#F0F0F6] pt-6 sidebar-item">
             <button
               onClick={handleDownloadResume}
               disabled={isDownloading}

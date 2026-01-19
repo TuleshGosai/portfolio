@@ -3,6 +3,7 @@ import emailjs from '@emailjs/browser'
 import type { FC } from 'react'
 import { useToast } from '../contexts/ToastContext'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import ScrollAnimation from '../components/ScrollAnimation'
 
 const Contact: FC = () => {
   const { showToast } = useToast()
@@ -131,8 +132,9 @@ const Contact: FC = () => {
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Contact Form */}
-          <div>
-            <h2 className="section-title mb-8">Leave Us Your Info</h2>
+          <ScrollAnimation animation="fade-right">
+            <div>
+              <h2 className="section-title mb-8">Leave Us Your Info</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-base font-medium text-[#2B2B2B] mb-2">
@@ -231,11 +233,13 @@ const Contact: FC = () => {
                 )}
               </button>
             </form>
-          </div>
+            </div>
+          </ScrollAnimation>
 
           {/* Contact Information */}
-          <div>
-            <h2 className="section-title mb-8">Contact Information</h2>
+          <ScrollAnimation animation="fade-left">
+            <div>
+              <h2 className="section-title mb-8">Contact Information</h2>
             <div className="space-y-6">
               {/* Address */}
               <div className="card bg-white">
@@ -290,11 +294,13 @@ const Contact: FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+            </div>
+          </ScrollAnimation>
         </div>
 
         {/* Map */}
-        <div className="mb-16">
+        <ScrollAnimation animation="fade-up" delay={300}>
+          <div className="mb-16">
         <MapContainer
           // @ts-expect-error - Leaflet types are not compatible with React 19
           center={center}
@@ -312,7 +318,8 @@ const Contact: FC = () => {
           {/* <a href="https://www.google.com/maps/place/Ganga+Nagar+Rd,+Joshipura,+Junagadh,+Gujarat+362002/@21.5302808,70.4394589,15.33z/data=!4m6!3m5!1s0x3958021e7b9c5e8d:0xf36429c4e8c197d3!8m2!3d21.531114!4d70.4496952!16s%2Fg%2F11b6_c1wrz?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" rel="noopener noreferrer">
             <img src="/images/junagadh.jpg" alt="Map" className="w-full h-80 object-contain" />
           </a> */}
-        </div>
+          </div>
+        </ScrollAnimation>
 
         {/* Footer Logos
         <div className="mb-8">
@@ -324,10 +331,12 @@ const Contact: FC = () => {
         </div> */}
 
         {/* Copyright */}
-        <div className="flex items-center justify-center gap-2 py-6 border-t border-gray-200">
-          <img src="/icons/copyright.svg" alt="copyright" className="w-5 h-5" />
-          <p className="text-sm text-[#2B2B2B]"> All Rights Reserved</p>
-        </div>
+        <ScrollAnimation animation="fade-up" delay={400}>
+          <div className="flex items-center justify-center gap-2 py-6 border-t border-gray-200">
+            <img src="/icons/copyright.svg" alt="copyright" className="w-5 h-5" />
+            <p className="text-sm text-[#2B2B2B]"> All Rights Reserved</p>
+          </div>
+        </ScrollAnimation>
       </div>
     </section>
   )

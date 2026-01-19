@@ -1,6 +1,5 @@
 import type { FC } from 'react'
 import { useState } from 'react'
-import Tooltip from '../components/Tooltip'
 
 const Navigation: FC = () => {
   const [activeSection, setActiveSection] = useState('home')
@@ -23,34 +22,27 @@ const Navigation: FC = () => {
   }
 
   return (
-    <nav className="fixed right-0 top-0 h-screen w-28 bg-[#FAFAFA] shadow-lg z-40 hidden xl:flex flex-col items-center justify-start pt-20">
-      <div className="flex flex-col items-center gap-8">
+    <nav className="fixed top-0 left-0 right-0 h-16 bg-[#FAFAFA] shadow-md z-40 nav-entrance hidden lg:block">
+      <div className="h-full max-w-7xl mx-auto px-4 lg:px-8 flex items-center justify-center lg:justify-end gap-4 lg:gap-6">
         {navItems.map((item) => (
-          <Tooltip key={item.id} text={item.label} position="left">
-            <button
-              onClick={() => scrollToSection(item.id)}
-              className="flex flex-col items-center gap-2 group relative"
-            >
-              {/* {activeSection === item.id && (
-                <span className="text-xs font-medium text-black absolute -top-8">
-                  {item.label}
-                </span>
-              )} */}
-              <div
-                className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
-                  activeSection === item.id
-                    ? 'bg-[#FFB400]'
-                    : 'bg-transparent group-hover:bg-gray-100'
-                }`}
-              >
-                <img
-                  src={item.icon}
-                  alt={item.label}
-                  className={`w-6 h-6 ${activeSection === item.id ? '' : 'opacity-50'}`}
-                />
-              </div>
-            </button>
-          </Tooltip>
+          <button
+            key={item.id}
+            onClick={() => scrollToSection(item.id)}
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all group relative cursor-pointer ${
+              activeSection === item.id
+                ? 'bg-[#FFB400] text-[#2B2B2B]'
+                : 'text-[#767676] hover:bg-gray-100 hover:text-[#2B2B2B]'
+            }`}
+          >
+            <img
+              src={item.icon}
+              alt={item.label}
+              className={`w-5 h-5 ${activeSection === item.id ? '' : 'opacity-60 group-hover:opacity-100'}`}
+            />
+            <span className="text-sm font-medium hidden sm:inline-block">
+              {item.label}
+            </span>
+          </button>
         ))}
       </div>
     </nav>

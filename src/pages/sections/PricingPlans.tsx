@@ -1,4 +1,5 @@
 import type { FC } from 'react'
+import ScrollAnimation from '../../components/ScrollAnimation'
 
 const PricingPlans: FC = () => {
   const plans = [
@@ -52,20 +53,27 @@ const PricingPlans: FC = () => {
   return (
     <section id="cv" className="py-20 px-6 lg:px-12 bg-[#F0F0F6]">
       <div className="max-w-6xl mx-auto">
-        <h2 className="section-title text-center">Price Plans</h2>
-        <p className="section-subtitle">
-          Amet Minim Mollit Non Deserunt Ullamco Est Sit Aliqua Dolor Do Amet Sint. Velit Officia
-          Consequat Duis Enim Velit Mollit. Lorem Ipsum
-        </p>
+        <ScrollAnimation animation="fade-up">
+          <h2 className="section-title text-center">Price Plans</h2>
+          <p className="section-subtitle">
+            Amet Minim Mollit Non Deserunt Ullamco Est Sit Aliqua Dolor Do Amet Sint. Velit Officia
+            Consequat Duis Enim Velit Mollit. Lorem Ipsum
+          </p>
+        </ScrollAnimation>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {plans.map((plan, index) => (
-            <div
+            <ScrollAnimation
               key={index}
-              className={`card bg-white relative ${
-                plan.popular ? 'shadow-xl scale-105' : ''
-              }`}
+              animation="fade-up"
+              delay={index * 100}
+              className="scroll-delay-1"
             >
+              <div
+                className={`card bg-white relative ${
+                  plan.popular ? 'shadow-xl scale-105' : ''
+                }`}
+              >
               {plan.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#FFB400] text-[#2B2B2B] text-xs font-medium px-4 py-1">
                   Most Popular
@@ -113,6 +121,7 @@ const PricingPlans: FC = () => {
                 Order Now
               </button>
             </div>
+            </ScrollAnimation>
           ))}
         </div>
       </div>

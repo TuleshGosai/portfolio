@@ -19,7 +19,7 @@ const App: React.FC = () => {
       <Navigation />
       <ToastContainer />
 
-      <main className="lg:ml-80 xl:mr-28">
+      <main className="lg:ml-80 pt-16 lg:pt-16">
         <Home />
         <Contact />
       </main>
