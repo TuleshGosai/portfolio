@@ -4,6 +4,7 @@ import type { FC } from 'react'
 import { useToast } from '../contexts/ToastContext'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import ScrollAnimation from '../components/ScrollAnimation'
+// import GoogleMap from '../components/GoogleMap'
 
 const Contact: FC = () => {
   const { showToast } = useToast()
@@ -20,8 +21,9 @@ const Contact: FC = () => {
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
-
   const center: [number, number] = [21.531114, 70.4496952];
+
+  // const mapCenter = { lat: 21.531114, lng: 70.4496952 };
 
   // EmailJS Configuration
   // Get these values from https://www.emailjs.com/
@@ -301,7 +303,7 @@ const Contact: FC = () => {
         {/* Map */}
         <ScrollAnimation animation="fade-up" delay={300}>
           <div className="mb-16">
-        <MapContainer
+          <MapContainer
           // @ts-expect-error - Leaflet types are not compatible with React 19
           center={center}
           zoom={13}
@@ -318,6 +320,7 @@ const Contact: FC = () => {
           {/* <a href="https://www.google.com/maps/place/Ganga+Nagar+Rd,+Joshipura,+Junagadh,+Gujarat+362002/@21.5302808,70.4394589,15.33z/data=!4m6!3m5!1s0x3958021e7b9c5e8d:0xf36429c4e8c197d3!8m2!3d21.531114!4d70.4496952!16s%2Fg%2F11b6_c1wrz?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" rel="noopener noreferrer">
             <img src="/images/junagadh.jpg" alt="Map" className="w-full h-80 object-contain" />
           </a> */}
+            {/* <GoogleMap center={mapCenter} zoom={13} height="400px" /> */}
           </div>
         </ScrollAnimation>
 
