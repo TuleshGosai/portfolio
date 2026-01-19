@@ -51,13 +51,13 @@ const PricingPlans: FC = () => {
   ]
 
   return (
-    <section id="cv" className="py-20 px-6 lg:px-12 bg-[#F0F0F6]">
+    <section id="pricing" className="py-20 px-6 lg:px-12 bg-[#F0F0F6]">
       <div className="max-w-6xl mx-auto">
         <ScrollAnimation animation="fade-up">
           <h2 className="section-title text-center">Price Plans</h2>
           <p className="section-subtitle">
-            Amet Minim Mollit Non Deserunt Ullamco Est Sit Aliqua Dolor Do Amet Sint. Velit Officia
-            Consequat Duis Enim Velit Mollit. Lorem Ipsum
+            Flexible pricing plans tailored to meet your project needs. 
+            Choose the plan that best fits your requirements and budget.
           </p>
         </ScrollAnimation>
 

@@ -13,8 +13,8 @@ const Portfolio: FC = () => {
         <ScrollAnimation animation="fade-up">
           <h2 className="section-title text-center">Portfolio</h2>
           <p className="section-subtitle">
-            Amet Minim Mollit Non Deserunt Ullamco Est Sit Aliqua Dolor Do Amet Sint. Velit Officia
-            Consequat Duis Enim Velit Mollit. Lorem Ipsum
+            Explore my collection of projects showcasing expertise in React.js, modern web development, and UI/UX design. 
+            Each project demonstrates technical skills, problem-solving abilities, and attention to detail.
           </p>
         </ScrollAnimation>
 
@@ -45,6 +45,7 @@ const Portfolio: FC = () => {
               src="/images/portfolio-grid.svg"
               alt="Portfolio Grid"
               className="w-full h-auto"
+              loading="lazy"
             />
           </div>
         </ScrollAnimation>

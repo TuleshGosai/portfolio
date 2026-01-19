@@ -30,13 +30,13 @@ const Recommendations: FC = () => {
   ]
 
   return (
-    <section className="py-20 px-6 lg:px-12 bg-[#F0F0F6]">
+    <section id="recommendations" className="py-20 px-6 lg:px-12 bg-[#F0F0F6]">
       <div className="max-w-6xl mx-auto">
         <ScrollAnimation animation="fade-up">
           <h2 className="section-title text-center">Recommendations</h2>
           <p className="section-subtitle">
-            Amet Minim Mollit Non Deserunt Ullamco Est Sit Aliqua Dolor Do Amet Sint. Velit Officia
-            Consequat Duis Enim Velit Mollit. Lorem Ipsum
+            Client testimonials and recommendations from professionals I've worked with. 
+            These reviews reflect the quality of work and dedication to delivering exceptional results.
           </p>
         </ScrollAnimation>
 
@@ -61,6 +61,7 @@ const Recommendations: FC = () => {
                     src={testimonial.image}
                     alt={testimonial.name}
                     className="w-16 h-16 rounded-full object-cover"
+                    loading="lazy"
                   />
                   <div>
                     <h4 className="text-base font-medium text-[#2B2B2B]">{testimonial.name}</h4>

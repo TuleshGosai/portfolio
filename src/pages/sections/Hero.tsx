@@ -8,7 +8,7 @@ const Hero: FC = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center bg-[#F0F0F6] px-6 lg:px-12 overflow-hidden"
+      className="relative min-h-screen flex items-center bg-[#F0F0F6] px-6 lg:px-12 overflow-hidden pt-8 lg:pt-0"
     >
       {/* Decorative Elements */}
       <div className="absolute top-8 left-1/4 w-4 h-4 border-2 border-[#FFB400] rounded-full opacity-80 drift" />
@@ -27,11 +27,9 @@ const Hero: FC = () => {
           </h1>
 
           <p className="text-base text-[#767676] mb-8 max-w-lg leading-relaxed fade-up delay-1">
-            Senior Frontend Developer with 7+ years of experience building
-            scalable, high-performance web applications using React.js and modern
-            JavaScript. Strong expertise in component-driven architecture,
-            state management, UI/UX optimization, and secure product-based
-            applications.
+            With 7+ years of experience building scalable, high-performance web applications 
+            using React.js and modern JavaScript. Strong expertise in component-driven architecture, 
+            state management, UI/UX optimization, and secure product-based applications.
           </p>
 
           <div className="fade-up delay-2">
@@ -52,6 +50,7 @@ const Hero: FC = () => {
               src="/images/tuleshgosai.png"
               alt="Tulesh Gosai"
               className="w-80 h-auto object-contain relative z-10"
+              loading="lazy"
             />
             <div className="absolute -top-4 -right-4 w-20 h-20 border-2 border-[#FFB400] rounded-full opacity-50" />
             <div className="absolute bottom-20 -left-6 w-16 h-16 border-2 border-green-500 rounded-full opacity-50" />

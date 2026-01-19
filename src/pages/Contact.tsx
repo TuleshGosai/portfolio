@@ -138,7 +138,7 @@ const Contact: FC = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-base font-medium text-[#2B2B2B] mb-2">
-                  Your Full Name ( Required)
+                  Your Full Name (Required)
                 </label>
                 <input
                   type="text"
@@ -156,7 +156,7 @@ const Contact: FC = () => {
               </div>
               <div>
                 <label className="block text-base font-medium text-[#2B2B2B] mb-2">
-                  Your Email ( Required)
+                  Your Email (Required)
                 </label>
                 <input
                   type="email"
@@ -253,7 +253,7 @@ const Contact: FC = () => {
                       <span className="text-sm text-[#767676]">India</span>
                       <span className="text-base font-medium text-[#2B2B2B]">City:</span>
                       <span className="text-sm text-[#767676]">Junagadh</span>
-                      <span className="text-base font-medium text-[#2B2B2B]">Streat:</span>
+                      <span className="text-base font-medium text-[#2B2B2B]">Street:</span>
                       <span className="text-sm text-[#767676]">Pawan park, Khalilpur road</span>
                     </div>
                   </div>
@@ -329,14 +329,6 @@ const Contact: FC = () => {
             className="w-full h-auto"
           />
         </div> */}
-
-        {/* Copyright */}
-        <ScrollAnimation animation="fade-up" delay={400}>
-          <div className="flex items-center justify-center gap-2 py-6 border-t border-gray-200">
-            <img src="/icons/copyright.svg" alt="copyright" className="w-5 h-5" />
-            <p className="text-sm text-[#2B2B2B]"> All Rights Reserved</p>
-          </div>
-        </ScrollAnimation>
       </div>
     </section>
   )

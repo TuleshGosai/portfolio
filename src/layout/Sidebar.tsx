@@ -1,25 +1,22 @@
 import { useState, type FC } from 'react'
 import Tooltip from '../components/Tooltip'
+import { useNavigation } from '../hooks/useNavigation'
 
 const Sidebar: FC = () => {
   const [isDownloading, setIsDownloading] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState('home')
+  const { activeSection, scrollToSection } = useNavigation()
 
   const navItems = [
     { id: 'home', label: 'Home', icon: '/icons/home.svg' },
-    { id: 'services', label: 'Service', icon: '/icons/service.svg' },
+    { id: 'services', label: 'Services', icon: '/icons/service.svg' },
     { id: 'blog', label: 'Product Highlight', icon: '/icons/blog.svg' },
     { id: 'contact', label: 'Contact', icon: '/icons/contact.svg' },
   ]
 
-  const scrollToSection = (id: string) => {
-    setActiveSection(id)
+  const handleScrollToSection = (id: string) => {
     setIsOpen(false) // Close sidebar on mobile when navigation item is clicked
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
+    scrollToSection(id)
   }
 
   const skills = [
@@ -91,7 +88,7 @@ const Sidebar: FC = () => {
           {navItems.map((item) => (
             <Tooltip key={item.id} text={item.label} position="bottom">
               <button
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleScrollToSection(item.id)}
                 className={`p-2 rounded-lg transition-all cursor-pointer ${
                   activeSection === item.id
                     ? 'bg-[#FFB400]'
@@ -147,6 +144,7 @@ const Sidebar: FC = () => {
                 src="/images/tuleshgosai.png"
                 alt="Tulesh Gosai"
                 className="w-40 h-40 rounded-full object-contain mx-auto"
+                loading="lazy"
               />
               <div className="absolute bottom-2 right-2 w-4 h-4 bg-[#7EB942] rounded-full border-2 border-white shadow-md" />
             </div>

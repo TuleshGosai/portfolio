@@ -1,7 +1,9 @@
-import type { FC } from 'react'
+import { useState, type FC } from 'react'
 import ScrollAnimation from '../../components/ScrollAnimation'
 
 const Blog: FC = () => {
+  const [previewImage, setPreviewImage] = useState<string | null>(null)
+
   const blogPosts = [
     {
       image: '/images/ekasha.png',
@@ -53,11 +55,15 @@ const Blog: FC = () => {
               className="scroll-delay-1"
             >
               <div className="card card-hover bg-white p-0 overflow-hidden flex flex-col h-full">
-                <div className="w-full h-48 md:h-64 overflow-hidden bg-[#F0F0F6] flex items-center justify-center p-4 border-white border-2 rounded-lg">
+                <div 
+                  className="w-full h-48 md:h-64 overflow-hidden bg-[#F0F0F6] flex items-center justify-center p-4 border-white border-2 rounded-lg cursor-pointer"
+                  onClick={() => setPreviewImage(post.image)}
+                >
                   <img
                     src={post.image}
                     alt={post.title}
                     className="w-full h-full object-contain"
+                    loading="lazy"
                   />
                 </div>
                 <div className="p-6 flex flex-col flex-1">
@@ -78,6 +84,36 @@ const Blog: FC = () => {
           ))}
         </div>
       </div>
+
+      {/* Image Preview Modal */}
+      {previewImage && (
+        <div
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 animate-fade-in"
+          onClick={() => setPreviewImage(null)}
+        >
+          <div 
+            className="max-w-4xl w-full max-h-[90vh] flex items-center justify-center relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative bg-white/5 backdrop-blur-sm rounded-lg p-2 shadow-2xl">
+              <img
+                src={previewImage}
+                alt="Project preview"
+                className="max-w-full max-h-[90vh] object-contain rounded-lg block"
+                loading="eager"
+              />
+              <button
+                onClick={() => setPreviewImage(null)}
+                className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-white text-2xl font-bold hover:text-gray-300 hover:bg-white/20 bg-black/70 rounded-full transition-all z-10 cursor-pointer shadow-lg leading-none"
+                aria-label="Close preview"
+                style={{ lineHeight: '1', padding: 0 }}
+              >
+                ×
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
