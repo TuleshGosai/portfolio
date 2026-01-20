@@ -42,34 +42,34 @@ export function generateSitemap(config: SitemapConfig): string {
  * Update this with your actual domain and pages
  */
 export const defaultSitemapConfig: SitemapConfig = {
-  baseUrl: 'https://tuleshgosai.netlify.app',
+  baseUrl: 'https://tuleshgosai.vercel.app',
   pages: [
     {
-      loc: 'https://tuleshgosai.netlify.app/',
+      loc: 'https://tuleshgosai.vercel.app/',
       lastmod: new Date().toISOString().split('T')[0],
       changefreq: 'weekly',
       priority: 1.0,
     },
     {
-      loc: 'https://tuleshgosai.netlify.app/#home',
+      loc: 'https://tuleshgosai.vercel.app/#home',
       lastmod: new Date().toISOString().split('T')[0],
       changefreq: 'monthly',
       priority: 1.0,
     },
     {
-      loc: 'https://tuleshgosai.netlify.app/#services',
+      loc: 'https://tuleshgosai.vercel.app/#services',
       lastmod: new Date().toISOString().split('T')[0],
       changefreq: 'monthly',
       priority: 0.9,
     },
     {
-      loc: 'https://tuleshgosai.netlify.app/#blog',
+      loc: 'https://tuleshgosai.vercel.app/#blog',
       lastmod: new Date().toISOString().split('T')[0],
       changefreq: 'weekly',
       priority: 0.8,
     },
     {
-      loc: 'https://tuleshgosai.netlify.app/#contact',
+      loc: 'https://tuleshgosai.vercel.app/#contact',
       lastmod: new Date().toISOString().split('T')[0],
       changefreq: 'monthly',
       priority: 0.7,

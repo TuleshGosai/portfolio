@@ -58,12 +58,12 @@ The `robots.txt` file is already created at `public/robots.txt`. It:
 
 ### 4. Update Your Domain
 
-**✅ Already Updated:** All files have been updated with your Netlify domain: `https://tuleshgosai.netlify.app`
+**✅ Already Updated:** All files have been updated with your Vercel domain: `https://tuleshgosai.vercel.app`
 
 If you get a custom domain later, update these files:
-1. **`public/sitemap.xml`** - Replace `https://tuleshgosai.netlify.app` with your custom domain
+1. **`public/sitemap.xml`** - Replace `https://tuleshgosai.vercel.app` with your custom domain
 2. **`scripts/generateSitemap.js`** - Update `baseUrl` variable
-3. **`src/utils/sitemapBuilder.ts`** - Update `baseUrl` in `defaultSitemapConfig`
+3. **`src/utils/sitemapBuilder.tsx`** - Update `baseUrl` in `defaultSitemapConfig`
 4. **`index.html`** - Update canonical URL and Open Graph URLs
 5. **`public/robots.txt`** - Update sitemap URL
 

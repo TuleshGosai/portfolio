@@ -14,7 +14,7 @@ const fs = require('fs')
 const path = require('path')
 
 // Get base URL from environment variable or use default
-const baseUrl = process.env.SITE_URL || process.env.VITE_SITE_URL || 'https://tuleshgosai.netlify.app'
+const baseUrl = process.env.SITE_URL || process.env.VITE_SITE_URL || 'https://tuleshgosai.vercel.app'
 // Use current date for lastmod
 const currentDate = new Date().toISOString().split('T')[0]
 
