@@ -224,7 +224,7 @@ const Sidebar: FC = () => {
           </div>
 
           {/* Download CV */}
-          <div className="border-t border-[#F0F0F6] pt-6 sidebar-item">
+          <div className="border-t border-[#F0F0F6] pt-6 pb-8 lg:pb-0 sidebar-item">
             <button
               onClick={handleDownloadResume}
               disabled={isDownloading}
