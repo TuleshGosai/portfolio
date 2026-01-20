@@ -1,62 +1,26 @@
 import { useState, type FC } from 'react'
 import Tooltip from '../components/Tooltip'
 import { useNavigation } from '../hooks/useNavigation'
+import sidebarData from '../helper/sidebar.json'
+import navigationData from '../helper/navigation.json'
 
 const Sidebar: FC = () => {
   const [isDownloading, setIsDownloading] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const { activeSection, scrollToSection } = useNavigation()
 
-  const navItems = [
-    { id: 'home', label: 'Home', icon: '/icons/home.svg' },
-    { id: 'services', label: 'Services', icon: '/icons/service.svg' },
-    { id: 'blog', label: 'Product Highlight', icon: '/icons/blog.svg' },
-    { id: 'contact', label: 'Contact', icon: '/icons/contact.svg' },
-  ]
-
   const handleScrollToSection = (id: string) => {
     setIsOpen(false) // Close sidebar on mobile when navigation item is clicked
     scrollToSection(id)
   }
-
-  const skills = [
-    { name: 'HTML5', level: 90 },
-    { name: 'CSS3', level: 85 },
-    { name: 'JavaScript(ES6+)', level: 85 },
-    { name: 'React', level: 85 },
-  ]
-
-  const languages = [
-    { name: 'Gujarati', level: 100 },
-    { name: 'English', level: 50 },
-    { name: 'Hindi', level: 80 },
-  ]
-
-  const extraSkills = [
-    'Redux, Next.js',
-    'TypeScript',
-    'Tailwind CSS, Bootstrap',
-    'Material UI',
-    'Ant Design',
-    'Git / Version Control',
-    'Sass',
-    'Node.js, Express, Jira',
-    'Performance Optimization',
-    'MongoDB, MySQL',
-    'Redux Toolkit',
-    'Docker, CI/CD',
-    'REST API, Joint.js',
-    'Jest, D3.js, Three.js',
-    'Postman, Swagger',
-  ]
 
   const handleDownloadResume = async () => {
     setIsDownloading(true)
     try {
       await new Promise((resolve) => setTimeout(resolve, 500))
       const link = document.createElement('a')
-      link.href = '/resume/Resume Tulesh Gosai.pdf'
-      link.download = 'Resume Tulesh Gosai.pdf'
+      link.href = sidebarData.resume.path
+      link.download = sidebarData.resume.path.split('/').pop() || 'resume.pdf'
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
@@ -85,7 +49,7 @@ const Sidebar: FC = () => {
 
         {/* Navigation Items */}
         <div className="flex items-center gap-2">
-          {navItems.map((item) => (
+          {navigationData.items.map((item) => (
             <Tooltip key={item.id} text={item.label} position="bottom">
               <button
                 onClick={() => handleScrollToSection(item.id)}
@@ -141,37 +105,21 @@ const Sidebar: FC = () => {
           <div className="text-center mb-8 sidebar-item">
             <div className="relative inline-block mb-4">
               <img
-                src="/images/tuleshgosai.png"
-                alt="Tulesh Gosai"
+                src={sidebarData.profile.image}
+                alt={sidebarData.profile.imageAlt}
                 className="w-40 h-40 rounded-full object-contain mx-auto"
                 loading="lazy"
               />
               <div className="absolute bottom-2 right-2 w-4 h-4 bg-[#7EB942] rounded-full border-2 border-white shadow-md" />
             </div>
             <h1 className="text-lg font-medium text-[#2B2B2B] mb-1">
-              Tulesh Gosai
+              {sidebarData.profile.name}
             </h1>
-            <p className="text-sm text-[#767676]">Senior Front-End Developer</p>
+            <p className="text-sm text-[#767676]">{sidebarData.profile.title}</p>
 
             {/* Social Media Icons */}
             <div className="flex justify-center gap-3 mt-6">
-              {[
-                {
-                  name: 'Instagram',
-                  icon: '/icons/instagram.svg',
-                  link: 'https://www.instagram.com/tulesh_nileshgiri_gosai',
-                },
-                {
-                  name: 'LinkedIn',
-                  icon: '/icons/linkedin.svg',
-                  link: 'https://www.linkedin.com/in/tulesh-gosai-5b4a011a4/',
-                },
-                {
-                  name: 'GitHub',
-                  icon: '/icons/github.svg',
-                  link: 'https://github.com/TuleshGosai',
-                },
-              ].map((social) => (
+              {sidebarData.socialMedia.map((social) => (
                 <Tooltip key={social.name} text={social.name} position="top">
                   <a
                     href={social.link}
@@ -195,21 +143,21 @@ const Sidebar: FC = () => {
             <div className="flex justify-between">
               <span className="text-sm font-medium">Age:</span>
               <span className="text-sm text-[#767676]">
-                {new Date().getFullYear() - 1996}
+                {new Date().getFullYear() - sidebarData.profile.birthYear}
               </span>
             </div>
             <div className="flex justify-between">
               <span className="text-sm font-medium">Residence:</span>
-              <span className="text-sm text-[#767676]">India</span>
+              <span className="text-sm text-[#767676]">{sidebarData.personalInfo.residence}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-sm font-medium">Freelance:</span>
-              <span className="text-sm text-[#7EB942]">Available</span>
+              <span className="text-sm text-[#7EB942]">{sidebarData.personalInfo.freelance}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-sm font-medium">Address:</span>
               <span className="text-sm text-[#767676]">
-                Junagadh, Gujarat
+                {sidebarData.personalInfo.address}
               </span>
             </div>
           </div>
@@ -217,7 +165,7 @@ const Sidebar: FC = () => {
           {/* Languages */}
           <div className="border-t border-[#F0F0F6] pt-6 mb-6 sidebar-item">
             <h3 className="text-lg font-medium mb-4">Languages</h3>
-            {languages.map((lang) => (
+            {sidebarData.languages.map((lang) => (
               <div key={lang.name} className="mb-3">
                 <div className="flex justify-between mb-1">
                   <span className="text-sm text-[#767676]">
@@ -240,7 +188,7 @@ const Sidebar: FC = () => {
           {/* Skills */}
           <div className="border-t border-[#F0F0F6] pt-6 mb-6 sidebar-item">
             <h3 className="text-lg font-medium mb-4">Skills</h3>
-            {skills.map((skill) => (
+            {sidebarData.skills.map((skill) => (
               <div key={skill.name} className="mb-3">
                 <div className="flex justify-between mb-1">
                   <span className="text-sm text-[#767676]">
@@ -263,7 +211,7 @@ const Sidebar: FC = () => {
           {/* Extra Skills */}
           <div className="border-t border-[#F0F0F6] pt-6 mb-6 sidebar-item">
             <h3 className="text-lg font-medium mb-4">Extra Skills</h3>
-            {extraSkills.map((skill, index) => (
+            {sidebarData.extraSkills.map((skill, index) => (
               <div key={index} className="flex items-start gap-2 mb-2">
                 <img
                   src="/icons/check-square.svg"
@@ -281,10 +229,36 @@ const Sidebar: FC = () => {
               onClick={handleDownloadResume}
               disabled={isDownloading}
               className={`btn-primary w-full justify-center rounded-none ${
-                isDownloading ? 'opacity-70 cursor-not-allowed' : ''
+                isDownloading ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'
               }`}
             >
-              {isDownloading ? 'Downloading...' : 'Download CV'}
+              {isDownloading ? (
+                <>
+                  <svg
+                    className="animate-spin -ml-1 mr-2 h-4 w-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    />
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    />
+                  </svg>
+                  <span>{sidebarData.resume.downloadingText}</span>
+                </>
+              ) : (
+                sidebarData.resume.downloadText
+              )}
             </button>
           </div>
         </div>

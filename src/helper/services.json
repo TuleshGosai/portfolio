@@ -1,0 +1,21 @@
+{
+  "title": "My Services",
+  "subtitle": "I specialize in building scalable, high-performance web applications using React.js and modern JavaScript.",
+  "services": [
+    {
+      "icon": "/icons/web-development.svg",
+      "title": "Web Development",
+      "description": "Building responsive, scalable web applications using React.js, TypeScript, and modern JavaScript. Specialized in creating high-performance single-page applications, e-commerce platforms, and content management systems with clean, maintainable code."
+    },
+    {
+      "icon": "/icons/ui-design.svg",
+      "title": "UI/UX Design",
+      "description": "Designing intuitive and visually appealing user interfaces that enhance user experience. Creating wireframes, prototypes, and implementing pixel-perfect designs using modern design principles and best practices for optimal user engagement."
+    },
+    {
+      "icon": "/icons/game-development.svg",
+      "title": "Product Development",
+      "description": "Leading end-to-end product development from concept to deployment. Managing product lifecycles, collaborating with cross-functional teams, and delivering secure, scalable solutions that meet business objectives and user needs."
+    }
+  ]
+}

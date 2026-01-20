@@ -1,0 +1,129 @@
+{
+  "title": "Price Plans",
+  "subtitle": "Flexible pricing plans tailored to meet your project needs. Choose the plan that best fits your requirements and budget.",
+  "plans": [
+    {
+      "name": "Silver",
+      "price": "$0.00",
+      "popular": false,
+      "description": "For Most Businesses That Want To Optimize Web Queries",
+      "features": [
+        {
+          "name": "UI Design",
+          "included": true
+        },
+        {
+          "name": "Web Development",
+          "included": true
+        },
+        {
+          "name": "Logo Design",
+          "included": false
+        },
+        {
+          "name": "Seo Optimization",
+          "included": false
+        },
+        {
+          "name": "WordPress Integration",
+          "included": false
+        },
+        {
+          "name": "5 Websites",
+          "included": false
+        },
+        {
+          "name": "Unlimited User",
+          "included": false
+        },
+        {
+          "name": "20 GB Bandwith",
+          "included": false
+        }
+      ]
+    },
+    {
+      "name": "Gold",
+      "price": "$50.00",
+      "popular": true,
+      "description": "For Most Businesses That Want To Optimize Web Queries",
+      "features": [
+        {
+          "name": "UI Design",
+          "included": true
+        },
+        {
+          "name": "Web Development",
+          "included": true
+        },
+        {
+          "name": "Logo Design",
+          "included": true
+        },
+        {
+          "name": "Seo Optimization",
+          "included": true
+        },
+        {
+          "name": "WordPress Integration",
+          "included": false
+        },
+        {
+          "name": "5 Websites",
+          "included": false
+        },
+        {
+          "name": "Unlimited User",
+          "included": false
+        },
+        {
+          "name": "20 GB Bandwith",
+          "included": false
+        }
+      ]
+    },
+    {
+      "name": "Dimond",
+      "price": "$80.00",
+      "popular": false,
+      "description": "For Most Businesses That Want To Optimize Web Queries",
+      "features": [
+        {
+          "name": "UI Design",
+          "included": true
+        },
+        {
+          "name": "Web Development",
+          "included": true
+        },
+        {
+          "name": "Logo Design",
+          "included": true
+        },
+        {
+          "name": "Seo Optimization",
+          "included": true
+        },
+        {
+          "name": "WordPress Integration",
+          "included": true
+        },
+        {
+          "name": "5 Websites",
+          "included": true
+        },
+        {
+          "name": "Unlimited User",
+          "included": true
+        },
+        {
+          "name": "20 GB Bandwith",
+          "included": true
+        }
+      ]
+    }
+  ],
+  "buttonText": "Order Now",
+  "popularBadge": "Most Popular",
+  "priceUnit": "/Hour"
+}

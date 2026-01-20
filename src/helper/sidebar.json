@@ -1,0 +1,85 @@
+{
+  "profile": {
+    "name": "Tulesh Gosai",
+    "title": "Senior Front-End Developer",
+    "image": "/images/tuleshgosaicover.png",
+    "imageAlt": "Tulesh Gosai",
+    "birthYear": 1996
+  },
+  "personalInfo": {
+    "residence": "India",
+    "freelance": "Available",
+    "address": "Junagadh, Gujarat"
+  },
+  "socialMedia": [
+    {
+      "name": "Instagram",
+      "icon": "/icons/instagram.svg",
+      "link": "https://www.instagram.com/tulesh_nileshgiri_gosai"
+    },
+    {
+      "name": "LinkedIn",
+      "icon": "/icons/linkedin.svg",
+      "link": "https://www.linkedin.com/in/tulesh-gosai-5b4a011a4/"
+    },
+    {
+      "name": "GitHub",
+      "icon": "/icons/github.svg",
+      "link": "https://github.com/TuleshGosai"
+    }
+  ],
+  "skills": [
+    {
+      "name": "HTML5",
+      "level": 90
+    },
+    {
+      "name": "CSS3",
+      "level": 85
+    },
+    {
+      "name": "JavaScript(ES6+)",
+      "level": 85
+    },
+    {
+      "name": "React",
+      "level": 85
+    }
+  ],
+  "languages": [
+    {
+      "name": "Gujarati",
+      "level": 100
+    },
+    {
+      "name": "English",
+      "level": 50
+    },
+    {
+      "name": "Hindi",
+      "level": 80
+    }
+  ],
+  "extraSkills": [
+    "Redux, Next.js",
+    "TypeScript",
+    "Tailwind CSS, Bootstrap",
+    "Material UI",
+    "Ant Design",
+    "Git / Version Control",
+    "Sass",
+    "Node.js, Express, Jira",
+    "Performance Optimization",
+    "MongoDB, MySQL",
+    "Redux Toolkit",
+    "Docker, CI/CD",
+    "REST API, Joint.js",
+    "Jest, D3.js, Three.js",
+    "Postman, Swagger"
+  ],
+  "resume": {
+    "path": "/resume/Resume Tulesh Gosai.pdf",
+    "downloadText": "Download CV",
+    "downloadingText": "Downloading..."
+  }
+}

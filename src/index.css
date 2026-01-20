@@ -45,7 +45,7 @@
 
   .btn-primary {
     @apply bg-[#FFB400] text-[#2B2B2B] font-semibold uppercase px-6 py-3 
-           hover:bg-yellow-500 transition-all duration-300 inline-flex items-center gap-2;
+           hover:bg-yellow-500 transition-all duration-300 inline-flex items-center gap-2 cursor-pointer;
   }
 
   .section-title {

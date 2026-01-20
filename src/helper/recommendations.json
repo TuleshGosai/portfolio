@@ -1,0 +1,31 @@
+{
+  "title": "Recommendations",
+  "subtitle": "Client testimonials and recommendations from professionals I've worked with. These reviews reflect the quality of work and dedication to delivering exceptional results.",
+  "testimonials": [
+    {
+      "name": "James Gouse",
+      "role": "Graphic Designer",
+      "image": "/images/testimonial-james.jpg",
+      "rating": 5,
+      "title": "Great Quality!",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae nulla diam in ac dictum a urna viverra morbi. Morbi donec amet...."
+    },
+    {
+      "name": "Tiana Philips",
+      "role": "Photographer",
+      "image": "/images/testimonial-tiana.jpg",
+      "rating": 5,
+      "title": "Amazing Work!",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae nulla diam in ac dictum a urna viverra morbi. Morbi donec amet...."
+    },
+    {
+      "name": "Talan Westervelt",
+      "role": "Business Man",
+      "image": "/images/testimonial-talan.jpg",
+      "rating": 5,
+      "title": "Great Quality!",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae nulla diam in ac dictum a urna viverra morbi. Morbi donec amet...."
+    }
+  ],
+  "starIcon": "/icons/star.svg"
+}

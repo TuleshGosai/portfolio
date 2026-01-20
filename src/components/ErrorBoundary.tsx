@@ -90,13 +90,13 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
             <div className="flex gap-4 justify-center">
               <button
                 onClick={this.handleReset}
-                className="btn-primary"
+                className="btn-primary cursor-pointer"
               >
                 Try Again
               </button>
               <button
                 onClick={() => window.location.reload()}
-                className="px-6 py-3 bg-gray-200 text-[#2B2B2B] font-semibold uppercase hover:bg-gray-300 transition-all duration-300 rounded"
+                className="px-6 py-3 bg-gray-200 text-[#2B2B2B] font-semibold uppercase hover:bg-gray-300 transition-all duration-300 rounded cursor-pointer"
               >
                 Refresh Page
               </button>

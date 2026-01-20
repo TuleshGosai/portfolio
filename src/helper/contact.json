@@ -1,0 +1,47 @@
+{
+  "formTitle": "Leave Us Your Info",
+  "infoTitle": "Contact Information",
+  "formFields": {
+    "name": {
+      "label": "Your Full Name (Required)",
+      "placeholder": "Enter your full name"
+    },
+    "email": {
+      "label": "Your Email (Required)",
+      "placeholder": "Enter your email address"
+    },
+    "subject": {
+      "label": "Subject",
+      "placeholder": "Enter subject (optional)"
+    },
+    "message": {
+      "label": "Your Message",
+      "placeholder": "Enter your message"
+    }
+  },
+  "buttonText": "Send Message",
+  "buttonSendingText": "Sending...",
+  "address": {
+    "country": "India",
+    "city": "Junagadh",
+    "street": "Pawan park, Khalilpur road"
+  },
+  "email": {
+    "email": "gosaituleshn@gmail.com",
+    "skype": "@tuleshgosai"
+  },
+  "phone": {
+    "personal": "+91 88490 80849",
+    "office": "+91 95379 98695"
+  },
+  "map": {
+    "center": [21.531114, 70.4496952],
+    "zoom": 13,
+    "markerText": "You are here 📍"
+  },
+  "messages": {
+    "success": "Message sent successfully! I will get back to you soon.",
+    "error": "Failed to send message. Please try again later or contact me directly at gosaituleshn@gmail.com",
+    "notConfigured": "Email service is not configured. Please contact me directly at gosaituleshn@gmail.com"
+  }
+}

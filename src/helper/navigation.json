@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "id": "home",
+      "label": "Home",
+      "icon": "/icons/home.svg"
+    },
+    {
+      "id": "services",
+      "label": "Services",
+      "icon": "/icons/service.svg"
+    },
+    {
+      "id": "blog",
+      "label": "Product Highlight",
+      "icon": "/icons/blog.svg"
+    },
+    {
+      "id": "contact",
+      "label": "Contact",
+      "icon": "/icons/contact.svg"
+    }
+  ]
+}

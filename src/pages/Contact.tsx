@@ -4,6 +4,7 @@ import type { FC } from 'react'
 import { useToast } from '../contexts/ToastContext'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import ScrollAnimation from '../components/ScrollAnimation'
+import contactData from '../helper/contact.json'
 // import GoogleMap from '../components/GoogleMap'
 
 const Contact: FC = () => {
@@ -21,7 +22,7 @@ const Contact: FC = () => {
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const center: [number, number] = [21.531114, 70.4496952];
+  const center: [number, number] = contactData.map.center as [number, number];
 
   // const mapCenter = { lat: 21.531114, lng: 70.4496952 };
 
@@ -81,7 +82,7 @@ const Contact: FC = () => {
     // Check if EmailJS is configured
     if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
       showToast(
-        'Email service is not configured. Please contact me directly at gosaituleshn@gmail.com',
+        contactData.messages.notConfigured,
         'error'
       )
       return
@@ -107,7 +108,7 @@ const Contact: FC = () => {
       )
 
       showToast(
-        'Message sent successfully! I will get back to you soon.',
+        contactData.messages.success,
         'success'
       )
       
@@ -121,7 +122,7 @@ const Contact: FC = () => {
     } catch (error) {
       console.error('EmailJS Error:', error)
       showToast(
-        'Failed to send message. Please try again later or contact me directly at gosaituleshn@gmail.com',
+        contactData.messages.error,
         'error'
       )
     } finally {
@@ -136,11 +137,11 @@ const Contact: FC = () => {
           {/* Contact Form */}
           <ScrollAnimation animation="fade-right">
             <div>
-              <h2 className="section-title mb-8">Leave Us Your Info</h2>
+              <h2 className="section-title mb-8">{contactData.formTitle}</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-base font-medium text-[#2B2B2B] mb-2">
-                  Your Full Name (Required)
+                  {contactData.formFields.name.label}
                 </label>
                 <input
                   type="text"
@@ -150,7 +151,7 @@ const Contact: FC = () => {
                   className={`w-full px-4 py-4 bg-[#F0F0F6] border-2 outline-none text-[#2B2B2B] ${
                     errors.name ? 'border-red-500' : 'border-[#2B2B2B]'
                   }`}
-                  placeholder="Enter your full name"
+                  placeholder={contactData.formFields.name.placeholder}
                 />
                 {errors.name && (
                   <p className="text-red-500 text-sm mt-1">{errors.name}</p>
@@ -158,7 +159,7 @@ const Contact: FC = () => {
               </div>
               <div>
                 <label className="block text-base font-medium text-[#2B2B2B] mb-2">
-                  Your Email (Required)
+                  {contactData.formFields.email.label}
                 </label>
                 <input
                   type="email"
@@ -168,26 +169,26 @@ const Contact: FC = () => {
                   className={`w-full px-4 py-4 bg-[#F0F0F6] border-2 outline-none text-[#2B2B2B] ${
                     errors.email ? 'border-red-500' : 'border-[#2B2B2B]'
                   }`}
-                  placeholder="Enter your email address"
+                  placeholder={contactData.formFields.email.placeholder}
                 />
                 {errors.email && (
                   <p className="text-red-500 text-sm mt-1">{errors.email}</p>
                 )}
               </div>
               <div>
-                <label className="block text-base font-medium text-[#2B2B2B] mb-2">Subject</label>
+                <label className="block text-base font-medium text-[#2B2B2B] mb-2">{contactData.formFields.subject.label}</label>
                 <input
                   type="text"
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
                   className="w-full px-4 py-4 bg-[#F0F0F6] border-2 border-[#2B2B2B] outline-none text-[#2B2B2B]"
-                  placeholder="Enter subject (optional)"
+                  placeholder={contactData.formFields.subject.placeholder}
                 />
               </div>
               <div>
                 <label className="block text-base font-medium text-[#2B2B2B] mb-2">
-                  Your Message
+                  {contactData.formFields.message.label}
                 </label>
                 <textarea
                   name="message"
@@ -195,7 +196,7 @@ const Contact: FC = () => {
                   onChange={handleChange}
                   rows={6}
                   className="w-full px-4 py-4 bg-[#F0F0F6] border-2 border-[#2B2B2B] outline-none text-[#2B2B2B] resize-none"
-                  placeholder="Enter your message"
+                  placeholder={contactData.formFields.message.placeholder}
                 />
               </div>
 
@@ -203,7 +204,7 @@ const Contact: FC = () => {
                 type="submit"
                 disabled={isSubmitting}
                 className={`btn-primary rounded-none ${
-                  isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                  isSubmitting ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'
                 }`}
               >
                 {isSubmitting ? (
@@ -228,10 +229,10 @@ const Contact: FC = () => {
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                       />
                     </svg>
-                    <span>Sending...</span>
+                    <span>{contactData.buttonSendingText}</span>
                   </>
                 ) : (
-                  'Send Message'
+                  contactData.buttonText
                 )}
               </button>
             </form>
@@ -241,7 +242,7 @@ const Contact: FC = () => {
           {/* Contact Information */}
           <ScrollAnimation animation="fade-left">
             <div>
-              <h2 className="section-title mb-8">Contact Information</h2>
+              <h2 className="section-title mb-8">{contactData.infoTitle}</h2>
             <div className="space-y-6">
               {/* Address */}
               <div className="card bg-white">
@@ -252,11 +253,11 @@ const Contact: FC = () => {
                   <div className="flex-1">
                     <div className="grid grid-cols-2 gap-y-2">
                       <span className="text-base font-medium text-[#2B2B2B]">Country:</span>
-                      <span className="text-sm text-[#767676]">India</span>
+                      <span className="text-sm text-[#767676]">{contactData.address.country}</span>
                       <span className="text-base font-medium text-[#2B2B2B]">City:</span>
-                      <span className="text-sm text-[#767676]">Junagadh</span>
+                      <span className="text-sm text-[#767676]">{contactData.address.city}</span>
                       <span className="text-base font-medium text-[#2B2B2B]">Street:</span>
-                      <span className="text-sm text-[#767676]">Pawan park, Khalilpur road</span>
+                      <span className="text-sm text-[#767676]">{contactData.address.street}</span>
                     </div>
                   </div>
                 </div>
@@ -271,9 +272,9 @@ const Contact: FC = () => {
                   <div className="flex-1">
                     <div className="grid grid-cols-2 gap-y-2">
                       <span className="text-base font-medium text-[#2B2B2B]">Email:</span>
-                      <span className="text-sm text-[#767676]">gosaituleshn@gmail.com</span>
+                      <span className="text-sm text-[#767676]">{contactData.email.email}</span>
                       <span className="text-base font-medium text-[#2B2B2B]">Skype:</span>
-                      <span className="text-sm text-[#767676]">@tuleshgosai</span>
+                      <span className="text-sm text-[#767676]">{contactData.email.skype}</span>
                     </div>
                   </div>
                 </div>
@@ -288,9 +289,9 @@ const Contact: FC = () => {
                   <div className="flex-1">
                     <div className="grid grid-cols-2 gap-y-2">
                       <span className="text-base font-medium text-[#2B2B2B]">Personal:</span>
-                      <span className="text-sm text-[#767676]">+91 88490 80849</span>
+                      <span className="text-sm text-[#767676]">{contactData.phone.personal}</span>
                       <span className="text-base font-medium text-[#2B2B2B]">Office:</span>
-                      <span className="text-sm text-[#767676]">+91 95379 98695</span>
+                      <span className="text-sm text-[#767676]">{contactData.phone.office}</span>
                     </div>
                   </div>
                 </div>
@@ -306,14 +307,14 @@ const Contact: FC = () => {
           <MapContainer
           // @ts-expect-error - Leaflet types are not compatible with React 19
           center={center}
-          zoom={13}
+          zoom={contactData.map.zoom}
           style={{ height: "400px", width: "100%" }}
         >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
 
           <Marker position={center}>
-            <Popup>You are here 📍</Popup>
+            <Popup>{contactData.map.markerText}</Popup>
           </Marker>
         </MapContainer>
 

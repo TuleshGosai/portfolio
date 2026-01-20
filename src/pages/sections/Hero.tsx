@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import heroData from '../../helper/hero.json'
 
 const Hero: FC = () => {
   const scrollToSection = (id: string) => {
@@ -21,24 +22,22 @@ const Hero: FC = () => {
         {/* Content */}
         <div className="flex-1 z-10">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#2B2B2B] mb-6 leading-tight fade-up">
-            I'm Tulesh Gosai
+            I'm {heroData.name}
             <br />
-            <span className="text-[#FFB400]">Senior Front-end</span> Developer
+            <span className="text-[#FFB400]">{heroData.title}</span>
           </h1>
 
           <p className="text-base text-[#767676] mb-8 max-w-lg leading-relaxed fade-up delay-1">
-            With 7+ years of experience building scalable, high-performance web applications 
-            using React.js and modern JavaScript. Strong expertise in component-driven architecture, 
-            state management, UI/UX optimization, and secure product-based applications.
+            {heroData.description}
           </p>
 
           <div className="fade-up delay-2">
             <button
               onClick={() => scrollToSection("contact")}
-              className="btn-primary rounded-none transition-transform hover:translate-x-1"
+              className="btn-primary rounded-none transition-transform hover:translate-x-1 cursor-pointer"
             >
-              <span>Hire Me</span>
-              <img src="/icons/arrow-right.svg" alt="arrow" className="w-3 h-3" />
+              <span>{heroData.buttonText}</span>
+              <img src={heroData.buttonIcon} alt="arrow" className="w-3 h-3" />
             </button>
           </div>
         </div>
@@ -47,8 +46,8 @@ const Hero: FC = () => {
         <div className="flex-1 flex justify-center relative fade-up delay-3">
           <div className="relative float">
             <img
-              src="/images/tuleshgosai.png"
-              alt="Tulesh Gosai"
+              src={heroData.profileImage}
+              alt={heroData.profileImageAlt}
               className="w-80 h-auto object-contain relative z-10"
               loading="lazy"
             />

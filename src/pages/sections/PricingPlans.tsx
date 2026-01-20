@@ -1,68 +1,20 @@
 import type { FC } from 'react'
 import ScrollAnimation from '../../components/ScrollAnimation'
+import pricingPlansData from '../../helper/pricingPlans.json'
 
 const PricingPlans: FC = () => {
-  const plans = [
-    {
-      name: 'Silver',
-      price: '$0.00',
-      popular: false,
-      features: [
-        { name: 'UI Design', included: true },
-        { name: 'Web Development', included: true },
-        { name: 'Logo Design', included: false },
-        { name: 'Seo Optimization', included: false },
-        { name: 'WordPress Integration', included: false },
-        { name: '5 Websites', included: false },
-        { name: 'Unlimited User', included: false },
-        { name: '20 GB Bandwith', included: false },
-      ],
-    },
-    {
-      name: 'Gold',
-      price: '$50.00',
-      popular: true,
-      features: [
-        { name: 'UI Design', included: true },
-        { name: 'Web Development', included: true },
-        { name: 'Logo Design', included: true },
-        { name: 'Seo Optimization', included: true },
-        { name: 'WordPress Integration', included: false },
-        { name: '5 Websites', included: false },
-        { name: 'Unlimited User', included: false },
-        { name: '20 GB Bandwith', included: false },
-      ],
-    },
-    {
-      name: 'Dimond',
-      price: '$80.00',
-      popular: false,
-      features: [
-        { name: 'UI Design', included: true },
-        { name: 'Web Development', included: true },
-        { name: 'Logo Design', included: true },
-        { name: 'Seo Optimization', included: true },
-        { name: 'WordPress Integration', included: true },
-        { name: '5 Websites', included: true },
-        { name: 'Unlimited User', included: true },
-        { name: '20 GB Bandwith', included: true },
-      ],
-    },
-  ]
-
   return (
     <section id="pricing" className="py-20 px-6 lg:px-12 bg-[#F0F0F6]">
       <div className="max-w-6xl mx-auto">
         <ScrollAnimation animation="fade-up">
-          <h2 className="section-title text-center">Price Plans</h2>
+          <h2 className="section-title text-center">{pricingPlansData.title}</h2>
           <p className="section-subtitle">
-            Flexible pricing plans tailored to meet your project needs. 
-            Choose the plan that best fits your requirements and budget.
+            {pricingPlansData.subtitle}
           </p>
         </ScrollAnimation>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {plans.map((plan, index) => (
+          {pricingPlansData.plans.map((plan, index) => (
             <ScrollAnimation
               key={index}
               animation="fade-up"
@@ -76,7 +28,7 @@ const PricingPlans: FC = () => {
               >
               {plan.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#FFB400] text-[#2B2B2B] text-xs font-medium px-4 py-1">
-                  Most Popular
+                  {pricingPlansData.popularBadge}
                 </div>
               )}
               <div className="text-center mb-6">
@@ -85,10 +37,10 @@ const PricingPlans: FC = () => {
                 </h3>
                 <div className="mb-4">
                   <span className="text-4xl font-semibold text-[#2B2B2B]">{plan.price}</span>
-                  <span className="text-sm text-[#767676]">/Hour</span>
+                  <span className="text-sm text-[#767676]">{pricingPlansData.priceUnit}</span>
                 </div>
                 <p className="text-sm text-[#767676]">
-                  For Most Businesses That Want To Optimize Web Queries
+                  {plan.description}
                 </p>
               </div>
 
@@ -112,13 +64,13 @@ const PricingPlans: FC = () => {
               </div>
 
               <button
-                className={`w-full py-3 text-sm font-bold uppercase transition-all ${
+                className={`w-full py-3 text-sm font-bold uppercase transition-all cursor-pointer ${
                   plan.popular
                     ? 'bg-[#FFB400] text-[#2B2B2B] hover:bg-yellow-500'
                     : 'border border-[#2B2B2B] text-[#2B2B2B] hover:bg-[#2B2B2B] hover:text-white'
                 }`}
               >
-                Order Now
+                {pricingPlansData.buttonText}
               </button>
             </div>
             </ScrollAnimation>

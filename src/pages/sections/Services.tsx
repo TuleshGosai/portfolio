@@ -1,40 +1,23 @@
 import type { FC } from 'react'
 import ScrollAnimation from '../../components/ScrollAnimation'
 import { useNavigation } from '../../hooks/useNavigation'
+import servicesData from '../../helper/services.json'
 
 const Services: FC = () => {
   const { scrollToSection } = useNavigation()
-
-  const services = [
-    {
-      icon: '/icons/web-development.svg',
-      title: 'Web Development',
-      description: 'Building responsive, scalable web applications using React.js, TypeScript, and modern JavaScript. Specialized in creating high-performance single-page applications, e-commerce platforms, and content management systems with clean, maintainable code.',
-    },
-    {
-      icon: '/icons/ui-design.svg',
-      title: 'UI/UX Design',
-      description: 'Designing intuitive and visually appealing user interfaces that enhance user experience. Creating wireframes, prototypes, and implementing pixel-perfect designs using modern design principles and best practices for optimal user engagement.',
-    },
-    {
-      icon: '/icons/game-development.svg',
-      title: 'Product Development',
-      description: 'Leading end-to-end product development from concept to deployment. Managing product lifecycles, collaborating with cross-functional teams, and delivering secure, scalable solutions that meet business objectives and user needs.',
-    },
-  ]
 
   return (
     <section id="services" className="py-20 px-6 lg:px-12 bg-[#F0F0F6]">
       <div className="max-w-6xl mx-auto">
         <ScrollAnimation animation="fade-up">
-          <h2 className="section-title text-center">My Services</h2>
+          <h2 className="section-title text-center">{servicesData.title}</h2>
           <p className="section-subtitle">
-            I specialize in building scalable, high-performance web applications using React.js and modern JavaScript.
+            {servicesData.subtitle}
           </p>
         </ScrollAnimation>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-          {services.map((service, index) => (
+          {servicesData.services.map((service, index) => (
             <ScrollAnimation
               key={index}
               animation="fade-up"
