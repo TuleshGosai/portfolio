@@ -1,10 +1,9 @@
 import type { FC } from "react";
 import heroData from '../../helper/hero.json'
+import { useNavigation } from '../../hooks/useNavigation'
 
 const Hero: FC = () => {
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
+  const { scrollToSection } = useNavigation()
 
   return (
     <section

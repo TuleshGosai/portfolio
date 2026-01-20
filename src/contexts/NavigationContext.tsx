@@ -16,6 +16,66 @@ interface NavigationProviderProps {
 export function NavigationProvider({ children }: NavigationProviderProps) {
   const [activeSection, setActiveSection] = useState('home')
 
+  // Scroll to section function
+  const scrollToSection = useCallback((id: string) => {
+    setActiveSection(id)
+    const element = document.getElementById(id)
+    if (element) {
+      // Calculate offset for fixed navigation (64px nav + 16px padding)
+      const navHeight = 64
+      const offset = 16
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+      const offsetPosition = elementPosition - navHeight - offset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
+
+      // Update URL hash without triggering scroll
+      if (window.history && window.history.pushState) {
+        window.history.pushState(null, '', `#${id}`)
+      }
+    }
+  }, [])
+
+  // Handle initial hash navigation and hash changes (for SPA routing)
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (hash && ['home', 'services', 'blog', 'contact'].includes(hash)) {
+        // Small delay to ensure DOM is ready
+        setTimeout(() => {
+          const element = document.getElementById(hash)
+          if (element) {
+            const navHeight = 64
+            const offset = 16
+            const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+            const offsetPosition = elementPosition - navHeight - offset
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            })
+            setActiveSection(hash)
+          }
+        }, 100)
+      }
+    }
+
+    // Handle initial load with hash
+    if (window.location.hash) {
+      handleHashChange()
+    }
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange)
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange)
+    }
+  }, [])
+
   // Scroll spy: Detect which section is currently in view
   useEffect(() => {
     const sections = ['home', 'services', 'blog', 'contact']
@@ -92,14 +152,6 @@ export function NavigationProvider({ children }: NavigationProviderProps) {
           observer.unobserve(element)
         }
       })
-    }
-  }, [])
-
-  const scrollToSection = useCallback((id: string) => {
-    setActiveSection(id)
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
     }
   }, [])
 

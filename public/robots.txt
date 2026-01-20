@@ -1,0 +1,12 @@
+# robots.txt for SEO
+# This file tells search engines which pages they can or can't crawl
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://tuleshgosai.netlify.app/sitemap.xml
+
+# Disallow specific paths if needed (uncomment and modify as needed)
+# Disallow: /admin/
+# Disallow: /private/
