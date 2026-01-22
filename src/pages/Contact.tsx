@@ -131,14 +131,14 @@ const Contact: FC = () => {
   }
 
   return (
-    <section id="contact" className="py-20 px-6 lg:px-12 bg-[#F0F0F6]">
-      <div className="max-w-6xl mx-auto">
+    <section id="contact" className="py-20 px-6 lg:px-12 bg-[#F0F0F6] overflow-x-hidden">
+      <div className="max-w-6xl mx-auto w-full overflow-x-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Contact Form */}
           <ScrollAnimation animation="fade-right">
             <div>
               <h2 className="section-title mb-8">{contactData.formTitle}</h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6 w-full overflow-x-hidden">
               <div>
                 <label className="block text-base font-medium text-[#2B2B2B] mb-2">
                   {contactData.formFields.name.label}
@@ -166,10 +166,11 @@ const Contact: FC = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full px-4 py-4 bg-[#F0F0F6] border-2 outline-none text-[#2B2B2B] ${
+                  className={`w-full px-4 py-4 bg-[#F0F0F6] border-2 outline-none text-[#2B2B2B] break-words overflow-wrap-anywhere ${
                     errors.email ? 'border-red-500' : 'border-[#2B2B2B]'
                   }`}
                   placeholder={contactData.formFields.email.placeholder}
+                  style={{ wordBreak: 'break-all', overflowWrap: 'anywhere' }}
                 />
                 {errors.email && (
                   <p className="text-red-500 text-sm mt-1">{errors.email}</p>
@@ -250,14 +251,14 @@ const Contact: FC = () => {
                   <div className="w-10 h-10 bg-[#FFB400] rounded-full flex items-center justify-center flex-shrink-0">
                     <img src="/icons/location.svg" alt="location" className="w-5 h-5" />
                   </div>
-                  <div className="flex-1">
-                    <div className="grid grid-cols-2 gap-y-2">
+                  <div className="flex-1 min-w-0">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2">
                       <span className="text-base font-medium text-[#2B2B2B]">Country:</span>
-                      <span className="text-sm text-[#767676]">{contactData.address.country}</span>
+                      <span className="text-sm text-[#767676] break-words overflow-wrap-anywhere">{contactData.address.country}</span>
                       <span className="text-base font-medium text-[#2B2B2B]">City:</span>
-                      <span className="text-sm text-[#767676]">{contactData.address.city}</span>
+                      <span className="text-sm text-[#767676] break-words overflow-wrap-anywhere">{contactData.address.city}</span>
                       <span className="text-base font-medium text-[#2B2B2B]">Street:</span>
-                      <span className="text-sm text-[#767676]">{contactData.address.street}</span>
+                      <span className="text-sm text-[#767676] break-words overflow-wrap-anywhere">{contactData.address.street}</span>
                     </div>
                   </div>
                 </div>
@@ -269,12 +270,12 @@ const Contact: FC = () => {
                   <div className="w-10 h-10 bg-[#FFB400] rounded-full flex items-center justify-center flex-shrink-0">
                     <img src="/icons/email.svg" alt="email" className="w-5 h-5" />
                   </div>
-                  <div className="flex-1">
-                    <div className="grid grid-cols-2 gap-y-2">
+                  <div className="flex-1 min-w-0">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2">
                       <span className="text-base font-medium text-[#2B2B2B]">Email:</span>
-                      <span className="text-sm text-[#767676]">{contactData.email.email}</span>
+                      <span className="text-sm text-[#767676] break-words overflow-wrap-anywhere" style={{ wordBreak: 'break-all', overflowWrap: 'anywhere' }}>{contactData.email.email}</span>
                       <span className="text-base font-medium text-[#2B2B2B]">Skype:</span>
-                      <span className="text-sm text-[#767676]">{contactData.email.skype}</span>
+                      <span className="text-sm text-[#767676] break-words overflow-wrap-anywhere">{contactData.email.skype}</span>
                     </div>
                   </div>
                 </div>
@@ -286,12 +287,12 @@ const Contact: FC = () => {
                   <div className="w-10 h-10 bg-[#FFB400] rounded-full flex items-center justify-center flex-shrink-0">
                     <img src="/icons/phone.svg" alt="phone" className="w-5 h-5" />
                   </div>
-                  <div className="flex-1">
-                    <div className="grid grid-cols-2 gap-y-2">
+                  <div className="flex-1 min-w-0">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2">
                       <span className="text-base font-medium text-[#2B2B2B]">Personal:</span>
-                      <span className="text-sm text-[#767676]">{contactData.phone.personal}</span>
+                      <span className="text-sm text-[#767676] break-words overflow-wrap-anywhere">{contactData.phone.personal}</span>
                       <span className="text-base font-medium text-[#2B2B2B]">Office:</span>
-                      <span className="text-sm text-[#767676]">{contactData.phone.office}</span>
+                      <span className="text-sm text-[#767676] break-words overflow-wrap-anywhere">{contactData.phone.office}</span>
                     </div>
                   </div>
                 </div>
@@ -303,12 +304,13 @@ const Contact: FC = () => {
 
         {/* Map */}
         <ScrollAnimation animation="fade-up" delay={300}>
-          <div className="mb-16">
+          <div className="mb-16 w-full overflow-hidden">
           <MapContainer
           // @ts-expect-error - Leaflet types are not compatible with React 19
           center={center}
           zoom={contactData.map.zoom}
-          style={{ height: "400px", width: "100%" }}
+          style={{ height: "400px", width: "100%", maxWidth: "100%" }}
+          className="w-full max-w-full"
         >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
